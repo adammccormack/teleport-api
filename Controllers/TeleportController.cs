@@ -10,9 +10,10 @@ namespace DemoLibrary2.Controllers
     public class TeleportController : Controller
     {
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ApiHelper.InitializeClient();
+            TeleportProcessor.LoadTeleport();
             return View();
         }
     }

@@ -7,6 +7,9 @@ using System.Net.Http;
 using DemoLibrary;
 using System.Security.Policy;
 using DemoLibrary2.Models;
+using Microsoft.DotNet.MSIdentity.Shared;
+using Newtonsoft.Json;
+using static DemoLibrary2.Models.TeleportModel;
 
 namespace DemoLibrary2
 {
@@ -14,13 +17,17 @@ namespace DemoLibrary2
 	{
 		public static async Task<TeleportModel> LoadTeleport()
 		{
-            var url = "https://api.teleport.org/api/";
+            string url = "https://api.teleport.org/api/";
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
+                Console.WriteLine("RESPONSE");
+                Console.WriteLine(response);
                 if (response.IsSuccessStatusCode)
                 {
                     TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
+                    
+                    Console.WriteLine("BELOW");
                     Console.WriteLine(teleport);
                     return teleport;
                 }
@@ -29,8 +36,6 @@ namespace DemoLibrary2
                     throw new Exception(response.ReasonPhrase);
                 }
             }
-
-
 
         }
 	}
