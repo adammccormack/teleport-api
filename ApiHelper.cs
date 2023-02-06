@@ -12,7 +12,7 @@ namespace DemoLibrary
     {
         public static HttpClient ApiClient { get; set; }
 
-        public static void Initializeclient()
+        public static void InitializeClient()
         {
             ApiClient = new HttpClient();
             ApiClient.DefaultRequestHeaders.Accept.Clear();
