@@ -7,47 +7,48 @@ using Newtonsoft.Json;
 
 namespace DemoLibrary2.Models
 {
-	public class TeleportModel
+	public partial class TeleportModel
 	{
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+
+        //Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public class CityById
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
         public class CitySearch
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
         public class ContinentById
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
         public class ContinentList
         {
-            public string href { get; set; }
+            public string? href { get; set; }
         }
 
         public class CountryById
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
         public class CountryList
         {
-            public string href { get; set; }
+            public string? href { get; set; }
         }
 
         public class Cury
         {
-            public string href { get; set; }
-            public string name { get; set; }
+            public string? href { get; set; }
+            public string? name { get; set; }
             public bool templated { get; set; }
         }
 
@@ -99,7 +100,7 @@ namespace DemoLibrary2.Models
 
         public class LocationByCoordinates
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
@@ -110,29 +111,29 @@ namespace DemoLibrary2.Models
 
         public class Self
         {
-            public string href { get; set; }
+            public string? href { get; set; }
         }
 
         public class TzById
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
         public class TzList
         {
-            public string href { get; set; }
+            public string? href { get; set; }
         }
 
         public class UaById
         {
-            public string href { get; set; }
+            public string? href { get; set; }
             public bool templated { get; set; }
         }
 
         public class UaList
         {
-            public string href { get; set; }
+            public string? href { get; set; }
         }
 
     }
