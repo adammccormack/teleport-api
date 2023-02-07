@@ -1,7 +1,12 @@
-﻿@{
+﻿@using DemoLibrary2.Models
+
+@{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
 
-<p>TELEPORT DATA</p>
+<h2>Index</h2>
+@{
+    var data = ViewBag.CityById;
+}
+    <p>TELEPORT DATA</p>

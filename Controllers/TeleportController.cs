@@ -13,8 +13,11 @@ namespace DemoLibrary2.Controllers
         public async Task<IActionResult> Index()
         {
             ApiHelper.InitializeClient();
-            TeleportProcessor.LoadTeleport();
-            return View();
+            var data = await TeleportProcessor.LoadTeleport();
+            Console.WriteLine("HEY");
+            Console.WriteLine(data);
+            Console.WriteLine("YOU");
+            return View(data);
         }
     }
 }
