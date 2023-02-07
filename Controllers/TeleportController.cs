@@ -14,9 +14,7 @@ namespace DemoLibrary2.Controllers
         {
             ApiHelper.InitializeClient();
             var data = await TeleportProcessor.LoadTeleport();
-            Console.WriteLine("HEY");
             Console.WriteLine(data);
-            Console.WriteLine("YOU");
             return View(data);
         }
     }
