@@ -21,9 +21,9 @@ namespace DemoLibrary2
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
-                
+                Console.WriteLine("RESPONSE 1");
                 Console.WriteLine(response);
-                
+                Console.WriteLine("RESPONSE 2");
                 if (response.IsSuccessStatusCode)
                 {
                     TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
@@ -39,4 +39,3 @@ namespace DemoLibrary2
         }
 	}
 }
-

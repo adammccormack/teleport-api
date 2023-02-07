@@ -9,7 +9,6 @@ namespace DemoLibrary2.Controllers
 {
     public class TeleportController : Controller
     {
-        
         public async Task<IActionResult> Index()
         {
             ApiHelper.InitializeClient();
