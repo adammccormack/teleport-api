@@ -9,7 +9,6 @@ namespace DemoLibrary2.Models
 {
 	public partial class TeleportModel
 	{
-
         //Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public class CityById
         {
