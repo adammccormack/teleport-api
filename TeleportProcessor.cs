@@ -15,7 +15,7 @@ namespace DemoLibrary2
 {
 	public class TeleportProcessor
 	{
-		public static async Task<TeleportModel> LoadTeleport()
+		public static async Task<TeleportModel.Root> LoadTeleport()
 		{
             string url = "https://api.teleport.org/api/";
 
@@ -26,24 +26,22 @@ namespace DemoLibrary2
                 
                 if (response.IsSuccessStatusCode)
                 {
-
+                    //TeleportModel result = await response.Content.ReadAsAsync<TeleportModel>();
                     var jsonString = await response.Content.ReadAsStringAsync();
-                    var dynamicObject = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
-
+                    //var dynamicObject = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
+                    TeleportModel.Root myDeserializedClass = JsonConvert.DeserializeObject<TeleportModel.Root>(jsonString);
                     // convert jsonString to Model object
 
                     // test sunModel can be inspected in Debug mode
 
-                    Console.WriteLine("DYNAMIC");
-                    Console.WriteLine(dynamicObject);
-                    Console.WriteLine("LINK");
-                    //Console.WriteLine(link);
+
+                    //var continentList = dynamicObject._links["continent:list"];
+                    //Console.WriteLine(continentList);
+                    //var citybyid = links["city:by-id"];
 
                     //TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
-                    //Console.WriteLine("HEY");
-                    //Console.WriteLine(teleport);
-                    //Console.WriteLine("YOU");
-                    return null;
+                    Console.WriteLine(myDeserializedClass);
+                    return myDeserializedClass;
                 }
                 else
                 {

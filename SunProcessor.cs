@@ -27,7 +27,7 @@ namespace DemoLibrary2
                     // test sunModel can be inspected in Debug mode
 
                     SunResultModel result = await response.Content.ReadAsAsync<SunResultModel>();
-
+                    Console.WriteLine(result);
                     return result.Results;
                 }
                 else
