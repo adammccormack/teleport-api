@@ -28,9 +28,13 @@ namespace DemoLibrary2
                 {
 
                     var jsonString = await response.Content.ReadAsStringAsync();
+                    var dynamicObject = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
+
                     Console.WriteLine("HEY");
-                    Console.WriteLine(jsonString);
+                    Console.WriteLine(dynamicObject);
                     Console.WriteLine("YOU");
+
+
                     //TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
                     //Console.WriteLine("HEY");
                     //Console.WriteLine(teleport);
