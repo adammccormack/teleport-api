@@ -32,7 +32,7 @@ namespace DemoLibrary2
 
                     // convert jsonString to Model object
 
-                    // test sunModel 
+                    // test sunModel can be inspected in Debug mode
 
                     Console.WriteLine("DYNAMIC");
                     Console.WriteLine(dynamicObject);
