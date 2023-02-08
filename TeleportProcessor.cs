@@ -15,7 +15,7 @@ namespace DemoLibrary2
 {
 	public class TeleportProcessor
 	{
-		public static async Task<dynamic> LoadTeleport()
+		public static async Task<TeleportModel> LoadTeleport()
 		{
             string url = "https://api.teleport.org/api/";
 
@@ -30,16 +30,20 @@ namespace DemoLibrary2
                     var jsonString = await response.Content.ReadAsStringAsync();
                     var dynamicObject = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
 
-                    //Console.WriteLine("DYNAMIC");
-                    //Console.WriteLine(dynamicObject);
-                    //Console.WriteLine("LINK");
+                    // convert jsonString to Model object
+
+                    // test sunModel 
+
+                    Console.WriteLine("DYNAMIC");
+                    Console.WriteLine(dynamicObject);
+                    Console.WriteLine("LINK");
                     //Console.WriteLine(link);
 
                     //TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
                     //Console.WriteLine("HEY");
                     //Console.WriteLine(teleport);
                     //Console.WriteLine("YOU");
-                    return dynamicObject;
+                    return null;
                 }
                 else
                 {
