@@ -41,8 +41,6 @@ namespace DemoLibrary2.Models
         {
             public string href { get; set; }
         }
-
-
     }
 }
 

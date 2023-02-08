@@ -9,20 +9,17 @@ using System.Security.Policy;
 using DemoLibrary2.Models;
 using Microsoft.DotNet.MSIdentity.Shared;
 using Newtonsoft.Json;
-using static DemoLibrary2.Models.ContinentsModel;
 
 namespace DemoLibrary2
 {
 	public class ContinentsProcessor
 	{
         public static async Task<ContinentsModel.Root> LoadContinents()
-        {
+        {   
             string url = "https://api.teleport.org/api/continents/";
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
-
-                Console.WriteLine(response);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -30,7 +27,6 @@ namespace DemoLibrary2
 
                     ContinentsModel.Root myDeserializedClass = JsonConvert.DeserializeObject<ContinentsModel.Root>(jsonString);
 
-                    Console.WriteLine(myDeserializedClass);
                     return myDeserializedClass;
                 }
                 else
