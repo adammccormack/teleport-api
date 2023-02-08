@@ -12,12 +12,9 @@ namespace DemoLibrary2.Controllers
         public async Task<IActionResult> Index()
         {
             ApiHelper.InitializeClient();
-            var data = await TeleportProcessor.LoadTeleport();
-            Console.WriteLine("FROM THE CONTROLLER 1");
-            Console.WriteLine(data._links.citybyid);
-            var citybyid = data._links.citybyid;
-            Console.WriteLine("FROM THE CONTROLLER 2");
-            return View(data);
+            var continents = await ContinentsProcessor.LoadContinents();
+            var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
+            return View(continents);
         }
     }
 }
