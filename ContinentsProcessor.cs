@@ -9,7 +9,6 @@ using System.Security.Policy;
 using DemoLibrary2.Models;
 using Microsoft.DotNet.MSIdentity.Shared;
 using Newtonsoft.Json;
-using static DemoLibrary2.Models.TeleportModel;
 using static DemoLibrary2.Models.ContinentsModel;
 
 namespace DemoLibrary2

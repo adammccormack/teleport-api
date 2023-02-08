@@ -14,6 +14,7 @@ namespace DemoLibrary2.Controllers
             ApiHelper.InitializeClient();
             var continents = await ContinentsProcessor.LoadContinents();
             var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
+            var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
             return View(continents);
         }
     }
