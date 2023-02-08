@@ -17,7 +17,7 @@ namespace DemoLibrary2
 	{
 		public static async Task<TeleportModel> LoadTeleport()
 		{
-            string url = "https://api.teleport.org/api/";
+            string url = "https://api.teleport.org/api/continents/";
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
@@ -26,16 +26,22 @@ namespace DemoLibrary2
                 
                 if (response.IsSuccessStatusCode)
                 {
-                    TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
-                    
-                    return teleport;
+
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("HEY");
+                    Console.WriteLine(jsonString);
+                    Console.WriteLine("YOU");
+                    //TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
+                    //Console.WriteLine("HEY");
+                    //Console.WriteLine(teleport);
+                    //Console.WriteLine("YOU");
+                    return null;
                 }
                 else
                 {
                     throw new Exception(response.ReasonPhrase);
                 }
             }
-
         }
 	}
 }
