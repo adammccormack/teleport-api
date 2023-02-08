@@ -27,7 +27,6 @@ namespace DemoLibrary2
 
                     UrbanAreasModel.AfricaUrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.AfricaUrbanAreas.Root>(jsonString);
 
-                    Console.WriteLine(myDeserializedClass);
                     return myDeserializedClass;
                 }
                 else
@@ -49,7 +48,27 @@ namespace DemoLibrary2
 
                     UrbanAreasModel.AsiaUrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.AsiaUrbanAreas.Root>(jsonString);
 
-                    Console.WriteLine(myDeserializedClass);
+                    return myDeserializedClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public static async Task<UrbanAreasModel.NorthAmericaUrbanAreas.Root> LoadNorthAmericaUrbanAreas()
+        {
+            string asiaURL = "https://api.teleport.org/api/continents/geonames:NA/urban_areas/";
+
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(asiaURL))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+
+                    UrbanAreasModel.NorthAmericaUrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.NorthAmericaUrbanAreas.Root>(jsonString);
+
                     return myDeserializedClass;
                 }
                 else
@@ -60,4 +79,3 @@ namespace DemoLibrary2
         }
     }
 }
-

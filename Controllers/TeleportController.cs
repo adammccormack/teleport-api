@@ -15,6 +15,9 @@ namespace DemoLibrary2.Controllers
             var continents = await ContinentsProcessor.LoadContinents();
             var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
             var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
+            var naUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
+            var naScore = await ScoresProcessor.LoadNorthAmericaScores();
+
             return View(continents);
         }
     }
