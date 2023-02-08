@@ -22,15 +22,18 @@ namespace DemoLibrary2.Controllers
 
             //var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
 
-            //var naUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
-
-            //var naScore = await ScoresProcessor.LoadNorthAmericaScores();
+            var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
+            var listNorthAmericaUA = northAmericaUA._links.uaitems;
+            //var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
 
             {
                 
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
-                
+                mymodel.NorthAmericaUA = listNorthAmericaUA;
+
+
+
                 return View(mymodel);
             }
 
