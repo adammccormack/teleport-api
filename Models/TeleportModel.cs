@@ -33,6 +33,12 @@ namespace DemoLibrary2.Models
             public string? href { get; set; }
         }
 
+        public class ContinentItems
+        {
+            public string? href { get; set; }
+            public string? name { get; set; }
+        }
+
         public class CountryById
         {
             public string? href { get; set; }

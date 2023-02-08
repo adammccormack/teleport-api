@@ -34,7 +34,6 @@ namespace DemoLibrary2
 
                     // test sunModel can be inspected in Debug mode
 
-
                     //var continentList = dynamicObject._links["continent:list"];
                     //Console.WriteLine(continentList);
                     //var citybyid = links["city:by-id"];
