@@ -37,17 +37,6 @@ namespace DemoLibrary2
             }
         }
 
-        public static List<ContinentsModel.ContinentItem> AccessContinentItemsList(ContinentsModel.Root? ContinentItems)
-        {
-            var continentItems = ContinentItems;
-            List<ContinentsModel.ContinentItem> continents = continentItems._links.continentitems;
-
-            return continents;
-        }
-
-
-
-
         //public static async Task<TeleportModel.Root> LoadTeleport()
         //{
         //          string url = "https://api.teleport.org/api/";
