@@ -12,6 +12,7 @@
     <div class="mb-3">
         <label class="form-label">Select Continent</label>
         <select class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
+            <option value="NOSELECTEDVALUE">--Please Select A Continent--</option>
         </select>
     </div>
     <div class="mb-3">
