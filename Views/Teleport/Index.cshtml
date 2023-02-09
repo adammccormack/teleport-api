@@ -8,12 +8,15 @@
 
 <h2>Teleport Scores</h2>
 
-
+@*<form asp-controller="TeleportController" asp-action="Index" method="post>">
+    <div class="mb-3">
+        <label class="form-label">Select Continent</label>
+        <select class="form-select" asp-items="Model.ContinentsSelectList"></select>
+    </div>
+</form>
 <div class="mb-3">
-    <label class="form-label">Select Continent</label>
-    <select class="form-select" asp-items="Model.ContinentsSelectList"></select>
-</div>
-
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>*@
 
 @*<table>
 

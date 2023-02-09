@@ -44,5 +44,13 @@ namespace DemoLibrary2.Controllers
                 return View(mymodel);
             }
         }
+
+        [HttpPost]
+        public IActionResult Index(TeleportViewModel model)
+        {
+            var selectedContinent = model.SelectedContinent;
+
+            return RedirectToAction("Index");
+        }
     }
 }
