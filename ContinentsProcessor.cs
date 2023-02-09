@@ -9,6 +9,7 @@ using System.Security.Policy;
 using DemoLibrary2.Models;
 using Microsoft.DotNet.MSIdentity.Shared;
 using Newtonsoft.Json;
+using static DemoLibrary2.Models.TeleportModel;
 
 namespace DemoLibrary2
 {
@@ -25,9 +26,9 @@ namespace DemoLibrary2
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
 
-                    ContinentsModel.Root myDeserializedClass = JsonConvert.DeserializeObject<ContinentsModel.Root>(jsonString);
-
-                    return myDeserializedClass;
+                    ContinentsModel.Root continentItems = JsonConvert.DeserializeObject<ContinentsModel.Root>(jsonString);
+                    
+                    return continentItems;
                 }
                 else
                 {
@@ -35,6 +36,17 @@ namespace DemoLibrary2
                 }
             }
         }
+
+        public static List<ContinentsModel.ContinentItem> AccessContinentItemsList(ContinentsModel.Root? ContinentItems)
+        {
+            var continentItems = ContinentItems;
+            List<ContinentsModel.ContinentItem> continents = continentItems._links.continentitems;
+
+            return continents;
+        }
+
+
+
 
         //public static async Task<TeleportModel.Root> LoadTeleport()
         //{
