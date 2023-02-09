@@ -57,12 +57,12 @@ namespace DemoLibrary2.Controllers
             var continentItems = await ContinentsProcessor.LoadContinents();
             var continents = continentItems._links.continentitems;
 
-
             //var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
             //var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
             var northAmericaCities = northAmericaUA._links.uaitems;
             var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
+
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
@@ -83,9 +83,9 @@ namespace DemoLibrary2.Controllers
         // and when one is selected, an ordered table of maximum 5 rows with
         // the following structure should be displayed
 
-        // when one is selected, send a HTTP request to the controller
-        // grab urban areas for continent "mymodel.NorthAmericaCities"
-        // take them to a new view called Table
-
+        // should grab top 5 NorthAmericaCities.name, top 5 NorthAmericaScore.teleport_city_score and top 5 NorthAmericaScore.summary
+        // put them into one object and pass into the view.
+        // If I can do this for all the continents, put each top 5 cities, score and summary into their own objects, then I can update
+        // the table dynamically.
     }
 }
