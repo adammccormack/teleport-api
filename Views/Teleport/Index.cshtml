@@ -6,25 +6,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-@*<h3><a href="@Model._links.continentlist.href">continents</a></h3>*@
-<p>TELEPORT DATA</p>
+<h2>Teleport Scores</h2>
+
 
 <div class="mb-3">
     <label class="form-label">Select Continent</label>
     <select class="form-select" asp-items="Model.ContinentsSelectList"></select>
 </div>
 
-
-@*<table>
-
-    @foreach (ContinentsModel.ContinentItem continent in Model.Continents)
-    {
-        <tr>
-            <td>@continent.name</td>
-        </tr>
-    }
-</table>*@
 
 @*<table>
 
