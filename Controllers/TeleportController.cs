@@ -16,23 +16,24 @@ namespace DemoLibrary2.Controllers
             ApiHelper.InitializeClient();
 
             // These are models, pass them to ViewModel
-            var continents = await ContinentsProcessor.LoadContinents();
 
+            // move this type of logic to a helper function in continents processor, do the same where ever items are con
+            var continentsItems = await ContinentsProcessor.LoadContinents();
+            var continents = continentsItems._links.continentitems;
             //var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
 
             //var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
 
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
-            var listNorthAmericaUA = northAmericaUA._links.uaitems;
-            //var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
+            var northAmericaCities = northAmericaUA._links.uaitems;
+            var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
 
             {
                 
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
-                mymodel.NorthAmericaUA = listNorthAmericaUA;
-
-
+                mymodel.NorthAmericaUACities = northAmericaCities;
+                mymodel.NorthAmericaScore = northAmericaScore;
 
                 return View(mymodel);
             }

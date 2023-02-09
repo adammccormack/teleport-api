@@ -5,9 +5,10 @@ namespace DemoLibrary2.Models
 {
 	public class TeleportViewModel
 	{
-		public ContinentsModel.Root Continents { get; set; }
+		public List<ContinentsModel.ContinentItem> Continents { get; set; }
 		public UrbanAreasModel.AfricaUrbanAreas.Root AfricaUA { get; set; }
-		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaUA { get; set; }
+		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaUACities { get; set; }
+		public ScoresModel.NorthAmericaScores.Root NorthAmericaScore { get; set; }
     }
 }
 
