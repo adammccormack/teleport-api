@@ -6,6 +6,7 @@ using DemoLibrary;
 using Microsoft.AspNetCore.Mvc;
 using DemoLibrary2.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DemoLibrary2.Controllers
 {
@@ -19,10 +20,6 @@ namespace DemoLibrary2.Controllers
             var continentItems = await ContinentsProcessor.LoadContinents();
             var continents = continentItems._links.continentitems;
 
-            foreach (var continent in continents)
-            {
-               
-            }
 
             //var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
             //var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
@@ -36,6 +33,13 @@ namespace DemoLibrary2.Controllers
                 mymodel.Continents = continents;
                 mymodel.NorthAmericaCities = northAmericaCities;
                 mymodel.NorthAmericaScore = northAmericaScore;
+
+                mymodel.ContinentsSelectList = new List<SelectListItem>();
+
+                foreach (var continent in continents)
+                {
+                    mymodel.ContinentsSelectList.Add(new SelectListItem { Text = continent.name });
+                }
 
                 return View(mymodel);
             }
