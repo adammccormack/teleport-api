@@ -14,7 +14,7 @@ namespace DemoLibrary2.Models
 
 		//Dropdown related properties
 
-		public string SelectedContinent { get; set; }
-		public List<SelectListItem> ContinentsSelectList { get; set; }
+		public string? SelectedContinent { get; set; }
+		public List<SelectListItem>? ContinentsSelectList { get; set; }
     }
 }

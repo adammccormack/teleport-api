@@ -28,7 +28,6 @@ namespace DemoLibrary2.Controllers
             var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
 
             {
-                
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
                 mymodel.NorthAmericaCities = northAmericaCities;
@@ -40,7 +39,6 @@ namespace DemoLibrary2.Controllers
                 {
                     mymodel.ContinentsSelectList.Add(new SelectListItem { Text = continent.name });
                 }
-
                 return View(mymodel);
             }
         }

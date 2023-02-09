@@ -1,5 +1,5 @@
 ﻿@using DemoLibrary2.Models
-@model dynamic
+@model TeleportViewModel
 
 
 @{
@@ -8,15 +8,16 @@
 
 <h2>Teleport Scores</h2>
 
-@*<form asp-controller="TeleportController" asp-action="Index" method="post>">
+<form asp-controller="Teleport" asp-action="Index" method="post">
     <div class="mb-3">
         <label class="form-label">Select Continent</label>
-        <select class="form-select" asp-items="Model.ContinentsSelectList"></select>
+        <select class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
+        </select>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
-<div class="mb-3">
-    <button type="submit" class="btn btn-primary">Submit</button>
-</div>*@
 
 @*<table>
 
