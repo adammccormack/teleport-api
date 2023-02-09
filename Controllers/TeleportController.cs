@@ -18,8 +18,8 @@ namespace DemoLibrary2.Controllers
             // These are models, pass them to ViewModel
 
             // move this type of logic to a helper function in continents processor, do the same where ever items are con
-            var continentsItems = await ContinentsProcessor.LoadContinents();
-            var continents = continentsItems._links.continentitems;
+            var continentItems = await ContinentsProcessor.LoadContinents();
+            var continents = continentItems._links.continentitems;
             //var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
 
             //var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
@@ -32,7 +32,7 @@ namespace DemoLibrary2.Controllers
                 
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
-                mymodel.NorthAmericaUACities = northAmericaCities;
+                mymodel.NorthAmericaCities = northAmericaCities;
                 mymodel.NorthAmericaScore = northAmericaScore;
 
                 return View(mymodel);

@@ -7,8 +7,7 @@ namespace DemoLibrary2.Models
 	{
 		public List<ContinentsModel.ContinentItem> Continents { get; set; }
 		public UrbanAreasModel.AfricaUrbanAreas.Root AfricaUA { get; set; }
-		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaUACities { get; set; }
+		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaCities { get; set; }
 		public ScoresModel.NorthAmericaScores.Root NorthAmericaScore { get; set; }
     }
 }
-
