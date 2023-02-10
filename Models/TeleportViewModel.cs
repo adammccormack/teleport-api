@@ -11,10 +11,10 @@ namespace DemoLibrary2.Models
 		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaCities { get; set; }
 		public ScoresModel.NorthAmericaScores.Root NorthAmericaScore { get; set; }
 
-
 		//Dropdown related properties
 
 		public string? SelectedContinent { get; set; }
 		public List<SelectListItem>? ContinentsSelectList { get; set; }
+
     }
 }

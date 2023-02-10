@@ -51,14 +51,9 @@ namespace DemoLibrary2.Controllers
         // the view then has a generic for each loop for the model based on city, score and summary.
         // each continents 5 city model will be pre-built and grouped in here.
 
-        // also in ScoresProcessor, replace urls with their slug equivalent, https://api.teleport.org/api/urban_areas/slug:washington-dc/,
-        // because can get name, score, and summary in one object.
-
         public async Task<IActionResult> Table()
         {
 
-            //var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
-            //var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
             var northAmericaCities = northAmericaUA._links.uaitems;
             var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
@@ -66,13 +61,11 @@ namespace DemoLibrary2.Controllers
             // DC
             // Miami
             // Los Angeles
-
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
 
                 mymodel.NorthAmericaCities = northAmericaCities;
                 mymodel.NorthAmericaScore = northAmericaScore;
-
 
                 return View(mymodel);
             }

@@ -10,6 +10,8 @@ using DemoLibrary2.Models;
 using Microsoft.DotNet.MSIdentity.Shared;
 using Newtonsoft.Json;
 using static DemoLibrary2.Models.ScoresModel.NorthAmericaScores.Root;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using static DemoLibrary2.Models.ScoresModel.NorthAmericaScores;
 
 namespace DemoLibrary2
 {
@@ -42,15 +44,15 @@ namespace DemoLibrary2
                     var miamiJsonString = await miamiResponse.Content.ReadAsStringAsync();
 
 
+                    var bostonScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(bostonJsonString);
+                    var lasVegasScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(lasVegasJsonString);
+                    var newYorkScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(newYorkJsonString);
+                    var washingtonDCScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(washingtonDCJsonString);
+                    var miamiScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(miamiJsonString);
 
-                    ScoresModel.NorthAmericaScores.Root bostonScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(bostonJsonString);
-                    ScoresModel.NorthAmericaScores.Root lasVegasScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(lasVegasJsonString);
-                    ScoresModel.NorthAmericaScores.Root newYorkScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(newYorkJsonString);
-                    ScoresModel.NorthAmericaScores.Root washingtonDCScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(washingtonDCJsonString);
-                    ScoresModel.NorthAmericaScores.Root miamiScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(miamiJsonString);
+                    var scores = (bostonScores, lasVegasScores, newYorkScores, washingtonDCScores, miamiScores);
 
-
-                    return bostonScores;
+                    return scores;
                 }
                 else
                 {
