@@ -23,6 +23,8 @@ namespace DemoLibrary2.Models
         public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem WashingtonDC { get; set; }
         public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem Miami { get; set; }
 
+        public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> Cities { get; set; }
+
         //Dropdown related properties
 
         public string? SelectedContinent { get; set; }

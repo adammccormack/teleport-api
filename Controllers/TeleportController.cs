@@ -21,13 +21,10 @@ namespace DemoLibrary2.Controllers
             // move this type of logic to a helper function in continents processor, do the same where ever items are there.
             var continentItems = await ContinentsProcessor.LoadContinents();
             var continents = continentItems._links.continentitems;
-
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
-
                 mymodel.ContinentsSelectList = new List<SelectListItem>();
-
                 foreach (var continent in continents)
                 {
                     mymodel.ContinentsSelectList.Add(new SelectListItem { Text = continent.name });
@@ -40,7 +37,6 @@ namespace DemoLibrary2.Controllers
         public IActionResult Index(TeleportViewModel model)
         {
             var selectedContinent = model.SelectedContinent;
-
             return RedirectToAction("Table");
         }
 
@@ -69,6 +65,24 @@ namespace DemoLibrary2.Controllers
             var washingtonDC = northAmericaCities[85];
             var miami = northAmericaCities[47];
 
+            var bostonName = boston.name;
+            var lasVegasName = lasVegas.name;
+            var newYorkName = newYork.name;
+            var washingtonDCName = washingtonDC.name;
+            var miamiName = miami.name;
+
+
+            List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> cities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
+
+            cities.Add(boston);
+            cities.Add(lasVegas);
+            cities.Add(newYork);
+            cities.Add(washingtonDC);
+            cities.Add(miami);
+
+            Console.WriteLine(cities);
+
+
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
 
@@ -83,6 +97,8 @@ namespace DemoLibrary2.Controllers
                 mymodel.NewYorkScore = newYorkScore;
                 mymodel.WashingtonDCScore = washingtonDCScore;
                 mymodel.MiamiScore = miamiScore;
+
+                mymodel.Cities = cities;
 
                 return View(mymodel);
             }
