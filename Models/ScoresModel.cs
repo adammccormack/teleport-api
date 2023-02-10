@@ -5,7 +5,6 @@ namespace DemoLibrary2.Models
 	{
         public partial class NorthAmericaScores
         {
-
             public class Category
             {
                 public string color { get; set; }
@@ -33,10 +32,10 @@ namespace DemoLibrary2.Models
                 public string summary { get; set; }
                 public double teleport_city_score { get; set; }
 
-                public static implicit operator Root((Root? bostonScores, Root? lasVegasScores, Root? newYorkScores, Root? washingtonDCScores, Root? miamiScores) v)
-                {
-                    throw new NotImplementedException();
-                }
+                //public static implicit operator Root((Root? bostonScores, Root? lasVegasScores, Root? newYorkScores, Root? washingtonDCScores, Root? miamiScores) v)
+                //{
+                //    throw new NotImplementedException();
+                //}
             }
 
             public class Self
