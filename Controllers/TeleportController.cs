@@ -60,13 +60,14 @@ namespace DemoLibrary2.Controllers
             var bostonScore = await ScoresProcessor.LoadBostonScores();
             var lasVegasScore = await ScoresProcessor.LoadLasVegasScores();
             var newYorkScore = await ScoresProcessor.LoadNewYorkScores();
+            var washingtonDCScore = await ScoresProcessor.LoadWashingtonDCScores();
+            var miamiScore = await ScoresProcessor.LoadMiamiScores();
 
             var boston = northAmericaCities[9];
             var lasVegas = northAmericaCities[40];
             var newYork = northAmericaCities[53];
-
-            // washgintonDC [85]
-            // Miami [57]
+            var washingtonDC = northAmericaCities[85];
+            var miami = northAmericaCities[47];
 
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
@@ -74,10 +75,14 @@ namespace DemoLibrary2.Controllers
                 mymodel.Boston = boston;
                 mymodel.LasVegas = lasVegas;
                 mymodel.NewYork = newYork;
+                mymodel.WashingtonDC = washingtonDC;
+                mymodel.Miami = miami;
 
                 mymodel.BostonScore = bostonScore;
                 mymodel.LasVegasScore = lasVegasScore;
                 mymodel.NewYorkScore = newYorkScore;
+                mymodel.WashingtonDCScore = washingtonDCScore;
+                mymodel.MiamiScore = miamiScore;
 
                 return View(mymodel);
             }

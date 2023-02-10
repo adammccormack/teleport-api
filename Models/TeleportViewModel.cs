@@ -14,10 +14,14 @@ namespace DemoLibrary2.Models
 		public ScoresModel.NorthAmericaScores.Root BostonScore { get; set; }
 		public ScoresModel.NorthAmericaScores.Root LasVegasScore { get; set; }
         public ScoresModel.NorthAmericaScores.Root NewYorkScore { get; set; }
+        public ScoresModel.NorthAmericaScores.Root WashingtonDCScore { get; set; }
+        public ScoresModel.NorthAmericaScores.Root MiamiScore { get; set; }
 
         public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem Boston { get; set; }
         public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem LasVegas { get; set; }
         public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem NewYork { get; set; }
+        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem WashingtonDC { get; set; }
+        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem Miami { get; set; }
 
         //Dropdown related properties
 

@@ -117,5 +117,43 @@ namespace DemoLibrary2
             }
         }
 
+        public static async Task<ScoresModel.NorthAmericaScores.Root> LoadWashingtonDCScores()
+        {
+            string washingtonDCUrl = "https://api.teleport.org/api/urban_areas/slug:washington-dc/scores/";
+
+            using (HttpResponseMessage washingtonDCResponse = await ApiHelper.ApiClient.GetAsync(washingtonDCUrl))
+            {
+                if (
+                    washingtonDCResponse.IsSuccessStatusCode)
+                {
+                    var washingtonDCJsonString = await washingtonDCResponse.Content.ReadAsStringAsync();
+                    var washingtonDCScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(washingtonDCJsonString);
+                    return (washingtonDCScores);
+                }
+                else
+                {
+                    throw new Exception(washingtonDCResponse.ReasonPhrase);
+                }
+            }
+        }
+
+        public static async Task<ScoresModel.NorthAmericaScores.Root> LoadMiamiScores()
+        {
+            string miamiUrl = "https://api.teleport.org/api/urban_areas/slug:miami/scores/";
+            using (HttpResponseMessage miamiResponse = await ApiHelper.ApiClient.GetAsync(miamiUrl))
+            {
+                if (miamiResponse.IsSuccessStatusCode)
+                {
+                    var miamiJsonString = await miamiResponse.Content.ReadAsStringAsync();
+                    var miamiScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(miamiJsonString);
+                    return (miamiScores);
+                }
+                else
+                {
+                    throw new Exception(miamiResponse.ReasonPhrase);
+                }
+            }
+        }
+
     }
 }
