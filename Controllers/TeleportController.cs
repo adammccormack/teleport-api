@@ -56,24 +56,28 @@ namespace DemoLibrary2.Controllers
 
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
             var northAmericaCities = northAmericaUA._links.uaitems;
+
             var bostonScore = await ScoresProcessor.LoadBostonScores();
             var lasVegasScore = await ScoresProcessor.LoadLasVegasScores();
+            var newYorkScore = await ScoresProcessor.LoadNewYorkScores();
 
             var boston = northAmericaCities[9];
             var lasVegas = northAmericaCities[40];
+            var newYork = northAmericaCities[53];
 
+            // washgintonDC [85]
+            // Miami [57]
 
-            // New York
-            // DC
-            // Miami
-            // Los Angeles
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
 
                 mymodel.Boston = boston;
                 mymodel.LasVegas = lasVegas;
+                mymodel.NewYork = newYork;
+
                 mymodel.BostonScore = bostonScore;
                 mymodel.LasVegasScore = lasVegasScore;
+                mymodel.NewYorkScore = newYorkScore;
 
                 return View(mymodel);
             }
