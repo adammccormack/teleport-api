@@ -65,13 +65,6 @@ namespace DemoLibrary2.Controllers
             var washingtonDC = northAmericaCities[85];
             var miami = northAmericaCities[47];
 
-            var bostonName = boston.name;
-            var lasVegasName = lasVegas.name;
-            var newYorkName = newYork.name;
-            var washingtonDCName = washingtonDC.name;
-            var miamiName = miami.name;
-
-
             List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> cities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
 
             cities.Add(boston);
