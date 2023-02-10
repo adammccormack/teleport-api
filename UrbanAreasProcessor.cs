@@ -59,9 +59,9 @@ namespace DemoLibrary2
 
         public static async Task<UrbanAreasModel.NorthAmericaUrbanAreas.Root> LoadNorthAmericaUrbanAreas()
         {
-            string asiaURL = "https://api.teleport.org/api/continents/geonames:NA/urban_areas/";
+            string northAmerciaURL = "https://api.teleport.org/api/continents/geonames:NA/urban_areas/";
 
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(asiaURL))
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(northAmerciaURL))
             {
                 if (response.IsSuccessStatusCode)
                 {

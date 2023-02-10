@@ -17,25 +17,44 @@ namespace DemoLibrary2
 	{
         public static async Task<ScoresModel.NorthAmericaScores.Root> LoadNorthAmericaScores()
         {
-            string albuquerqueUrl = "https://api.teleport.org/api/urban_areas/slug:albuquerque/scores/";
-            string lasVegasScoreUrl = "https://api.teleport.org/api/urban_areas/slug:las-vegas/scores/";
+            string bostonUrl = "https://api.teleport.org/api/urban_areas/slug:boston/scores/";
+            string lasVegasUrl = "https://api.teleport.org/api/urban_areas/slug:las-vegas/scores/";
+            string newYorkUrl = "https://api.teleport.org/api/urban_areas/slug:new-york/scores/";
+            string washingtonDCUrl = "https://api.teleport.org/api/urban_areas/slug:washington-dc/scores/";
+            string miamiUrl = "https://api.teleport.org/api/urban_areas/slug:miami/scores/";
 
-            using (HttpResponseMessage albuquerqueResponse = await ApiHelper.ApiClient.GetAsync(albuquerqueUrl))
-            using (HttpResponseMessage lasVegasResponse = await ApiHelper.ApiClient.GetAsync(lasVegasScoreUrl))
+
+            using (HttpResponseMessage bostonResponse = await ApiHelper.ApiClient.GetAsync(bostonUrl))
+            using (HttpResponseMessage lasVegasResponse = await ApiHelper.ApiClient.GetAsync(lasVegasUrl))
+            using (HttpResponseMessage newYorkResponse = await ApiHelper.ApiClient.GetAsync(newYorkUrl))
+            using (HttpResponseMessage washingtonDCResponse = await ApiHelper.ApiClient.GetAsync(washingtonDCUrl))
+            using (HttpResponseMessage miamiResponse = await ApiHelper.ApiClient.GetAsync(miamiUrl))
+
+
             {
-                if (albuquerqueResponse.IsSuccessStatusCode || lasVegasResponse.IsSuccessStatusCode)
+                if (bostonResponse.IsSuccessStatusCode || lasVegasResponse.IsSuccessStatusCode ||
+                    newYorkResponse.IsSuccessStatusCode || washingtonDCResponse.IsSuccessStatusCode || miamiResponse.IsSuccessStatusCode)
                 {
-                    var albuquerqueJsonString = await albuquerqueResponse.Content.ReadAsStringAsync();
+                    var bostonJsonString = await bostonResponse.Content.ReadAsStringAsync();
                     var lasVegasJsonString = await lasVegasResponse.Content.ReadAsStringAsync();
+                    var newYorkJsonString = await newYorkResponse.Content.ReadAsStringAsync();
+                    var washingtonDCJsonString = await washingtonDCResponse.Content.ReadAsStringAsync();
+                    var miamiJsonString = await miamiResponse.Content.ReadAsStringAsync();
 
-                    ScoresModel.NorthAmericaScores.Root albuquerqueDeserialized = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(albuquerqueJsonString);
-                    ScoresModel.NorthAmericaScores.Root lasVegasDeserialized = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(lasVegasJsonString);
 
-                    return albuquerqueDeserialized;
+
+                    ScoresModel.NorthAmericaScores.Root bostonScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(bostonJsonString);
+                    ScoresModel.NorthAmericaScores.Root lasVegasScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(lasVegasJsonString);
+                    ScoresModel.NorthAmericaScores.Root newYorkScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(newYorkJsonString);
+                    ScoresModel.NorthAmericaScores.Root washingtonDCScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(washingtonDCJsonString);
+                    ScoresModel.NorthAmericaScores.Root miamiScores = JsonConvert.DeserializeObject<ScoresModel.NorthAmericaScores.Root>(miamiJsonString);
+
+
+                    return bostonScores;
                 }
                 else
                 {
-                    throw new Exception(albuquerqueResponse.ReasonPhrase);
+                    throw new Exception(bostonResponse.ReasonPhrase);
                 }
             }
         }

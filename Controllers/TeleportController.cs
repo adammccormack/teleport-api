@@ -44,6 +44,16 @@ namespace DemoLibrary2.Controllers
             return RedirectToAction("Table");
         }
 
+        // IDEA
+        // once continent is selected, send that value to Table(selectedcontinent)
+        // put an if statement OR a case/when statement inside table() controller, if selectedContinent matches one of these cases
+        // then send only that model for that continents 5 cities to the view
+        // the view then has a generic for each loop for the model based on city, score and summary.
+        // each continents 5 city model will be pre-built and grouped in here.
+
+        // also in ScoresProcessor, replace urls with their slug equivalent, https://api.teleport.org/api/urban_areas/slug:washington-dc/,
+        // because can get name, score, and summary in one object.
+
         public async Task<IActionResult> Table()
         {
 
@@ -52,6 +62,10 @@ namespace DemoLibrary2.Controllers
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
             var northAmericaCities = northAmericaUA._links.uaitems;
             var northAmericaScore = await ScoresProcessor.LoadNorthAmericaScores();
+            // New York
+            // DC
+            // Miami
+            // Los Angeles
 
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
