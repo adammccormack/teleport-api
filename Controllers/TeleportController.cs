@@ -71,6 +71,12 @@ namespace DemoLibrary2.Controllers
             return View(mymodel);
         }
 
+        public async Task<IActionResult> OceaniaTable()
+        {
+            var mymodel = await ScoresProcessor.Oceania.ProcessNameAndScores();
+            return View(mymodel);
+        }
+
         // Your application should provide a drop-down list of continents,
         // and when one is selected, an ordered table of maximum 5 rows with
         // the following structure should be displayed

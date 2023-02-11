@@ -86,5 +86,23 @@ namespace DemoLibrary2
                 }
             }
         }
+
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadOceaniaUrbanAreas()
+        {
+            string northAmerciaURL = "https://api.teleport.org/api/continents/geonames:OC/urban_areas/";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(northAmerciaURL))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
+                    return myDeserializedClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }
