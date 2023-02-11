@@ -51,6 +51,24 @@ namespace DemoLibrary2
             }
         }
 
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadSouthAmericaUrbanAreas()
+        {
+            string southAmericaUrl = "https://api.teleport.org/api/continents/geonames:SA/urban_areas/";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(southAmericaUrl))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
+                    return myDeserializedClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadNorthAmericaUrbanAreas()
         {
             string northAmerciaURL = "https://api.teleport.org/api/continents/geonames:NA/urban_areas/";

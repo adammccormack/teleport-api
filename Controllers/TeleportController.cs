@@ -55,52 +55,37 @@ namespace DemoLibrary2.Controllers
 
         public async Task<IActionResult> AfricaTable()
         {
-
-
-
             var mymodel = await ScoresProcessor.Africa.ProcessNameAndScores();
             return View(mymodel);
         }
 
         public async Task<IActionResult> AsiaTable()
         {
-            var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
-            var ASCities = asiaUA._links.uaitems;
-
-            var dohaScore = await ScoresProcessor.Asia.LoadDohaScores();
-            var manilaScore = await ScoresProcessor.Asia.LoadManilaScores();
-            var taipeiScore = await ScoresProcessor.Asia.LoadTaipeiScores();
-            var hongKongScore = await ScoresProcessor.Asia.LoadHongKongScores();
-            var tokyoScore = await ScoresProcessor.Asia.LoadTokyoScores();
-
-            var doha = ASCities[11];
-            var manila = ASCities[22];
-            var taipei = ASCities[31];
-            var hongKong = ASCities[15];
-            var tokyo = ASCities[35];
-
-            List<ScoresModel.Scores.Root> asiaScores = new List<ScoresModel.Scores.Root>();
-
-            List<UrbanAreasModel.UrbanAreas.UaItem> asiaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
-            return View();
+            var mymodel = await ScoresProcessor.Asia.ProcessNameAndScores();
+            return View(mymodel);
         }
 
-            // Your application should provide a drop-down list of continents,
-            // and when one is selected, an ordered table of maximum 5 rows with
-            // the following structure should be displayed
-
-            // should grab top 5 NorthAmericaCities.name, top 5 NorthAmericaScore.teleport_city_score and top 5 NorthAmericaScore.summary
-            // put them into one object and pass into the view.
-            // If I can do this for all the continents, put each top 5 cities, score and summary into their own objects, then I can update
-            // the table dynamically.
-
-
-            //https://developers.teleport.org/api/reference/#/
-            // with this page, once I click on a city from the list, can perhaps get the request URL https://api.teleport.org/api/cities/?search=albuquerque
-            // then set the api call to be dynamic based on the city you click on, thereby making one api function that searches dynamically.
-
-            // still should choose top 5 cities for each continent first. 
-
+        public async Task<IActionResult> SouthAmericaTable()
+        {
+            var mymodel = await ScoresProcessor.SouthAmerica.ProcessNameAndScores();
+            return View(mymodel);
         }
+
+        // Your application should provide a drop-down list of continents,
+        // and when one is selected, an ordered table of maximum 5 rows with
+        // the following structure should be displayed
+
+        // should grab top 5 NorthAmericaCities.name, top 5 NorthAmericaScore.teleport_city_score and top 5 NorthAmericaScore.summary
+        // put them into one object and pass into the view.
+        // If I can do this for all the continents, put each top 5 cities, score and summary into their own objects, then I can update
+        // the table dynamically.
+
+
+        //https://developers.teleport.org/api/reference/#/
+        // with this page, once I click on a city from the list, can perhaps get the request URL https://api.teleport.org/api/cities/?search=albuquerque
+        // then set the api call to be dynamic based on the city you click on, thereby making one api function that searches dynamically.
+
+        // still should choose top 5 cities for each continent first. 
+
+    }
 }

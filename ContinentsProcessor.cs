@@ -35,39 +35,5 @@ namespace DemoLibrary2
                 }
             }
         }
-
-        //public static async Task<TeleportModel.Root> LoadTeleport()
-        //{
-        //          string url = "https://api.teleport.org/api/";
-
-        //          using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-        //          {
-
-        //              Console.WriteLine(response);
-
-        //              if (response.IsSuccessStatusCode)
-        //              {
-        //                  //TeleportModel result = await response.Content.ReadAsAsync<TeleportModel>();
-        //                  var jsonString = await response.Content.ReadAsStringAsync();
-        //                  //var dynamicObject = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
-        //                  TeleportModel.Root myDeserializedClass = JsonConvert.DeserializeObject<TeleportModel.Root>(jsonString);
-        //                  // convert jsonString to Model object
-
-        //                  // test sunModel can be inspected in Debug mode
-
-        //                  //var continentList = dynamicObject._links["continent:list"];
-        //                  //Console.WriteLine(continentList);
-        //                  //var citybyid = links["city:by-id"];
-
-        //                  //TeleportModel teleport = await response.Content.ReadAsAsync<TeleportModel>();
-        //                  Console.WriteLine(myDeserializedClass);
-        //                  return myDeserializedClass;
-        //              }
-        //              else
-        //              {
-        //                  throw new Exception(response.ReasonPhrase);
-        //              }
-        //          }
-        //      }
     }
 }
