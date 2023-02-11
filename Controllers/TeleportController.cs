@@ -49,48 +49,8 @@ namespace DemoLibrary2.Controllers
 
         public async Task<IActionResult> NorthAmericaTable()
         {
-
-            var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
-            var NACities = northAmericaUA._links.uaitems;
-
-            var bostonScore = await ScoresProcessor.LoadBostonScores();
-            var lasVegasScore = await ScoresProcessor.LoadLasVegasScores();
-            var newYorkScore = await ScoresProcessor.LoadNewYorkScores();
-            var washingtonDCScore = await ScoresProcessor.LoadWashingtonDCScores();
-            var miamiScore = await ScoresProcessor.LoadMiamiScores();
-
-            var boston = NACities[9];
-            var lasVegas = NACities[40];
-            var newYork = NACities[53];
-            var washingtonDC = NACities[85];
-            var miami = NACities[47];
-
-            List<ScoresModel.Scores.Root> northAmericascores = new List<ScoresModel.Scores.Root>();
-
-            northAmericascores.Add(bostonScore);
-            northAmericascores.Add(lasVegasScore);
-            northAmericascores.Add(newYorkScore);
-            northAmericascores.Add(washingtonDCScore);
-            northAmericascores.Add(miamiScore);
-
-
-            List<UrbanAreasModel.UrbanAreas.UaItem> northAmericaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
-            northAmericaCities.Add(boston);
-            northAmericaCities.Add(lasVegas);
-            northAmericaCities.Add(newYork);
-            northAmericaCities.Add(washingtonDC);
-            northAmericaCities.Add(miami);
-
-            
-            {
-                TeleportViewModel mymodel = new TeleportViewModel();
-
-                mymodel.NACities = northAmericaCities;
-                mymodel.NAScores = northAmericascores;
-
-                return View(mymodel);
-            }
+            var mymodel = await ScoresProcessor.NorthAmerica.ProcessNameandScores();
+            return View(mymodel);
         }
 
         public async Task<IActionResult> AfricaTable()
