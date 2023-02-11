@@ -23,6 +23,9 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem> OceaniaCities { get; set; }
         public List<ScoresModel.Scores.Root> OceaniaScores { get; set; }
 
+        public List<UrbanAreasModel.UrbanAreas.UaItem> EuropeCities { get; set; }
+        public List<ScoresModel.Scores.Root> EuropeScores { get; set; }
+
         //Dropdown related properties
 
         public string? SelectedContinent { get; set; }

@@ -692,6 +692,141 @@ namespace DemoLibrary2
                 return (mymodel);
             }
         }
+
+        public class Europe
+        {
+            public static async Task<ScoresModel.Scores.Root> LoadAarhusScores()
+            {
+                string url = "https://api.teleport.org/api/urban_areas/slug:aarhus/scores/";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                        return (score);
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadChisinauScores()
+            {
+                string url = "https://api.teleport.org/api/urban_areas/slug:chisinau/scores/";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                        return (score);
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadLilleScores()
+            {
+                string url = "https://api.teleport.org/api/urban_areas/slug:lille/scores/";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                        return (score);
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadNaplesScores()
+            {
+                string url = "https://api.teleport.org/api/urban_areas/slug:naples/scores/";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                        return (score);
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadVilniusScores()
+            {
+                string url = "https://api.teleport.org/api/urban_areas/slug:vilnius/scores/";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                        return (score);
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+
+            public static async Task<TeleportViewModel> ProcessNameAndScores()
+            {
+                var europeUA = await UrbanAreasProcessor.LoadEuropeUrbanAreas();
+                var EUCities = europeUA._links.uaitems;
+
+                var aarhusScore = await ScoresProcessor.Europe.LoadAarhusScores();
+                var chisinauScore = await ScoresProcessor.Europe.LoadChisinauScores();
+                var lilleScore = await ScoresProcessor.Europe.LoadLilleScores();
+                var naplesScore = await ScoresProcessor.Europe.LoadNaplesScores();
+                var vilniusScore = await ScoresProcessor.Europe.LoadVilniusScores();
+
+                var aarhus = EUCities[0];
+                var chisinau = EUCities[23];
+                var lille = EUCities[53];
+                var naples = EUCities[71];
+                var vilnius = EUCities[106];
+
+                List<ScoresModel.Scores.Root> europeScores = new List<ScoresModel.Scores.Root>();
+
+                europeScores.Add(aarhusScore);
+                europeScores.Add(chisinauScore);
+                europeScores.Add(lilleScore);
+                europeScores.Add(naplesScore);
+                europeScores.Add(vilniusScore);
+
+                List<UrbanAreasModel.UrbanAreas.UaItem> europeCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
+
+                europeCities.Add(aarhus);
+                europeCities.Add(chisinau);
+                europeCities.Add(lille);
+                europeCities.Add(naples);
+                europeCities.Add(vilnius);
+
+                TeleportViewModel mymodel = new TeleportViewModel();
+
+                mymodel.EuropeCities = europeCities;
+                mymodel.EuropeScores = europeScores;
+
+                return (mymodel);
+            }
+
+        }
     }
 }
 
