@@ -49,7 +49,7 @@ namespace DemoLibrary2.Controllers
 
         public async Task<IActionResult> NorthAmericaTable()
         {
-            var mymodel = await ScoresProcessor.NorthAmerica.ProcessNameandScores();
+            var mymodel = await ScoresProcessor.NorthAmerica.ProcessNameAndScores();
             return View(mymodel);
         }
 

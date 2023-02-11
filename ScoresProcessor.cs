@@ -147,18 +147,14 @@ namespace DemoLibrary2
                 northAmericaCities.Add(washingtonDC);
                 northAmericaCities.Add(miami);
 
-                    TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel mymodel = new TeleportViewModel();
 
-                    mymodel.NACities = northAmericaCities;
-                    mymodel.NAScores = northAmericascores;
+                mymodel.NACities = northAmericaCities;
+                mymodel.NAScores = northAmericascores;
 
-                    return (mymodel);
-                
+                return (mymodel);
             }
         }
-
-        
-
 
         // Africa
         public static async Task<ScoresModel.Scores.Root> LoadCairoScores()
