@@ -65,6 +65,14 @@ namespace DemoLibrary2.Controllers
             var washingtonDC = northAmericaCities[85];
             var miami = northAmericaCities[47];
 
+            List<ScoresModel.NorthAmericaScores.Root> scores = new List<ScoresModel.NorthAmericaScores.Root>();
+
+            scores.Add(bostonScore);
+            scores.Add(lasVegasScore);
+            scores.Add(newYorkScore);
+            scores.Add(washingtonDCScore);
+            scores.Add(miamiScore);
+
             List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> cities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
 
             cities.Add(boston);
@@ -92,6 +100,7 @@ namespace DemoLibrary2.Controllers
                 mymodel.MiamiScore = miamiScore;
 
                 mymodel.Cities = cities;
+                mymodel.Scores = scores;
 
                 return View(mymodel);
             }

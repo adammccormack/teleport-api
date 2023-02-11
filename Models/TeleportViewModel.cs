@@ -24,6 +24,7 @@ namespace DemoLibrary2.Models
         public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem Miami { get; set; }
 
         public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> Cities { get; set; }
+        public List<ScoresModel.NorthAmericaScores.Root> Scores { get; set; }
 
         //Dropdown related properties
 
