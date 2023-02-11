@@ -8,10 +8,10 @@ namespace DemoLibrary2.Models
 	{
 		public List<ContinentsModel.ContinentItem> Continents { get; set; }
 
-		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaCities { get; set; }
+		public List<UrbanAreasModel.UrbanAreas.UaItem> NorthAmericaCities { get; set; }
 
-        public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> Cities { get; set; }
-        public List<ScoresModel.Scores.Root> Scores { get; set; }
+        public List<UrbanAreasModel.UrbanAreas.UaItem> NACities { get; set; }
+        public List<ScoresModel.Scores.Root> NAScores { get; set; }
 
         //Dropdown related properties
 

@@ -51,7 +51,7 @@ namespace DemoLibrary2.Controllers
         {
 
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
-            var northAmericaCities = northAmericaUA._links.uaitems;
+            var NACities = northAmericaUA._links.uaitems;
 
             var bostonScore = await ScoresProcessor.LoadBostonScores();
             var lasVegasScore = await ScoresProcessor.LoadLasVegasScores();
@@ -59,11 +59,11 @@ namespace DemoLibrary2.Controllers
             var washingtonDCScore = await ScoresProcessor.LoadWashingtonDCScores();
             var miamiScore = await ScoresProcessor.LoadMiamiScores();
 
-            var boston = northAmericaCities[9];
-            var lasVegas = northAmericaCities[40];
-            var newYork = northAmericaCities[53];
-            var washingtonDC = northAmericaCities[85];
-            var miami = northAmericaCities[47];
+            var boston = NACities[9];
+            var lasVegas = NACities[40];
+            var newYork = NACities[53];
+            var washingtonDC = NACities[85];
+            var miami = NACities[47];
 
             List<ScoresModel.Scores.Root> northAmericascores = new List<ScoresModel.Scores.Root>();
 
@@ -74,20 +74,20 @@ namespace DemoLibrary2.Controllers
             northAmericascores.Add(miamiScore);
 
 
-            List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> northAmericacities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
+            List<UrbanAreasModel.UrbanAreas.UaItem> northAmericaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
 
-            northAmericacities.Add(boston);
-            northAmericacities.Add(lasVegas);
-            northAmericacities.Add(newYork);
-            northAmericacities.Add(washingtonDC);
-            northAmericacities.Add(miami);
+            northAmericaCities.Add(boston);
+            northAmericaCities.Add(lasVegas);
+            northAmericaCities.Add(newYork);
+            northAmericaCities.Add(washingtonDC);
+            northAmericaCities.Add(miami);
 
             
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
 
-                mymodel.Cities = northAmericacities;
-                mymodel.Scores = northAmericascores;
+                mymodel.NACities = northAmericaCities;
+                mymodel.NAScores = northAmericascores;
 
                 return View(mymodel);
             }
@@ -96,7 +96,7 @@ namespace DemoLibrary2.Controllers
         public async Task<IActionResult> AfricaTable()
         {
             var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
-            var africaCities = africaUA._links.uaitems;
+            var AFCities = africaUA._links.uaitems;
 
             var cairoScore = await ScoresProcessor.LoadCairoScores();
             var capeTownScore = await ScoresProcessor.LoadCapeTownScores();
@@ -104,13 +104,39 @@ namespace DemoLibrary2.Controllers
             var lagosScore = await ScoresProcessor.LoadLagosScores();
             var NairobiScore = await ScoresProcessor.LoadNairobiScores();
 
-            var cairo = africaCities[0];
-            var capeTown = africaCities[1];
-            var casablanca = africaCities[2];
-            var lagos = africaCities[5];
-            var Nairobi = africaCities[6];
+            var cairo = AFCities[0];
+            var capeTown = AFCities[1];
+            var casablanca = AFCities[2];
+            var lagos = AFCities[5];
+            var Nairobi = AFCities[6];
 
-            List<ScoresModel.Scores.Root> scores = new List<ScoresModel.Scores.Root>();
+            List<ScoresModel.Scores.Root> africaScores = new List<ScoresModel.Scores.Root>();
+
+            List<UrbanAreasModel.UrbanAreas.UaItem> africaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
+
+            return View();
+        }
+
+        public async Task<IActionResult> AsiaTable()
+        {
+            var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
+            var ASCities = asiaUA._links.uaitems;
+
+            var dohaScore = await ScoresProcessor.LoadDohaScores();
+            var manilaScore = await ScoresProcessor.LoadManilaScores();
+            var taipeiScore = await ScoresProcessor.LoadTaipeiScores();
+            var hongKongScore = await ScoresProcessor.LoadHongKongScores();
+            var tokyoScore = await ScoresProcessor.LoadTokyoScores();
+
+            var doha = ASCities[11];
+            var manila = ASCities[22];
+            var taipei = ASCities[31];
+            var hongKong = ASCities[15];
+            var tokyo = ASCities[35];
+
+            List<ScoresModel.Scores.Root> asiaScores = new List<ScoresModel.Scores.Root>();
+
+            List<UrbanAreasModel.UrbanAreas.UaItem> asiaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
 
             return View();
         }
