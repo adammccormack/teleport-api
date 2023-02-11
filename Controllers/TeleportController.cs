@@ -55,26 +55,11 @@ namespace DemoLibrary2.Controllers
 
         public async Task<IActionResult> AfricaTable()
         {
-            var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
-            var AFCities = africaUA._links.uaitems;
 
-            var cairoScore = await ScoresProcessor.LoadCairoScores();
-            var capeTownScore = await ScoresProcessor.LoadCapeTownScores();
-            var casablancaScore = await ScoresProcessor.LoadCasablancaScores();
-            var lagosScore = await ScoresProcessor.LoadLagosScores();
-            var NairobiScore = await ScoresProcessor.LoadNairobiScores();
 
-            var cairo = AFCities[0];
-            var capeTown = AFCities[1];
-            var casablanca = AFCities[2];
-            var lagos = AFCities[5];
-            var Nairobi = AFCities[6];
 
-            List<ScoresModel.Scores.Root> africaScores = new List<ScoresModel.Scores.Root>();
-
-            List<UrbanAreasModel.UrbanAreas.UaItem> africaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
-            return View();
+            var mymodel = await ScoresProcessor.Africa.ProcessNameAndScores();
+            return View(mymodel);
         }
 
         public async Task<IActionResult> AsiaTable()
@@ -82,11 +67,11 @@ namespace DemoLibrary2.Controllers
             var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
             var ASCities = asiaUA._links.uaitems;
 
-            var dohaScore = await ScoresProcessor.LoadDohaScores();
-            var manilaScore = await ScoresProcessor.LoadManilaScores();
-            var taipeiScore = await ScoresProcessor.LoadTaipeiScores();
-            var hongKongScore = await ScoresProcessor.LoadHongKongScores();
-            var tokyoScore = await ScoresProcessor.LoadTokyoScores();
+            var dohaScore = await ScoresProcessor.Asia.LoadDohaScores();
+            var manilaScore = await ScoresProcessor.Asia.LoadManilaScores();
+            var taipeiScore = await ScoresProcessor.Asia.LoadTaipeiScores();
+            var hongKongScore = await ScoresProcessor.Asia.LoadHongKongScores();
+            var tokyoScore = await ScoresProcessor.Asia.LoadTokyoScores();
 
             var doha = ASCities[11];
             var manila = ASCities[22];

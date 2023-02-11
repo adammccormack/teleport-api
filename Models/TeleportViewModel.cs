@@ -13,6 +13,11 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem> NACities { get; set; }
         public List<ScoresModel.Scores.Root> NAScores { get; set; }
 
+        public List<UrbanAreasModel.UrbanAreas.UaItem> AFCities { get; set; }
+        public List<ScoresModel.Scores.Root> AFScores { get; set; }
+
+
+
         //Dropdown related properties
 
         public string? SelectedContinent { get; set; }
