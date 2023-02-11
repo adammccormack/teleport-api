@@ -8,20 +8,7 @@ namespace DemoLibrary2.Models
 	{
 		public List<ContinentsModel.ContinentItem> Continents { get; set; }
 
-		public UrbanAreasModel.AfricaUrbanAreas.Root AfricaUA { get; set; }
-
 		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaCities { get; set; }
-		public ScoresModel.NorthAmericaScores.Root BostonScore { get; set; }
-		public ScoresModel.NorthAmericaScores.Root LasVegasScore { get; set; }
-        public ScoresModel.NorthAmericaScores.Root NewYorkScore { get; set; }
-        public ScoresModel.NorthAmericaScores.Root WashingtonDCScore { get; set; }
-        public ScoresModel.NorthAmericaScores.Root MiamiScore { get; set; }
-
-        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem Boston { get; set; }
-        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem LasVegas { get; set; }
-        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem NewYork { get; set; }
-        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem WashingtonDC { get; set; }
-        public UrbanAreasModel.NorthAmericaUrbanAreas.UaItem Miami { get; set; }
 
         public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> Cities { get; set; }
         public List<ScoresModel.NorthAmericaScores.Root> Scores { get; set; }

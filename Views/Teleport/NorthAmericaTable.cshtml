@@ -2,7 +2,7 @@
 @model TeleportViewModel
 
     @{
-        ViewData["Title"] = "Table";
+        ViewData["Title"] = "NorthAmericaTable";
     }
 
     <h2>City Summaries</h2>
@@ -18,14 +18,14 @@
                 </tr>
             </thead>
             <tbody>
-                @*@foreach (var city in @Model.Cities)
+                @foreach (var city in @Model.Cities)
                     {
                         <tr>
                         <td>@city.name</td>
-                        <td>@((int)Model.Scores.teleport_city_score)</td>
-                        <td>@Html.Raw(@Model.Scores.summary)</td>
+                        @*<td>@((int)Model.Scores.teleport_city_score)</td>
+                        <td>@Html.Raw(@Model.Scores.summary)</td>*@
                         </tr>
-                    }*@
+                    }
                 @*<tr>
             <td>@Model.Boston.name</td>
             <td>@((int)Model.BostonScore.teleport_city_score)</td>

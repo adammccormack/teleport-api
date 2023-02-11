@@ -37,7 +37,7 @@ namespace DemoLibrary2.Controllers
         public IActionResult Index(TeleportViewModel model)
         {
             var selectedContinent = model.SelectedContinent;
-            return RedirectToAction("Table");
+            return RedirectToAction("NorthAmericaTable");
         }
 
         // IDEA
@@ -47,7 +47,7 @@ namespace DemoLibrary2.Controllers
         // the view then has a generic for each loop for the model based on city, score and summary.
         // each continents 5 city model will be pre-built and grouped in here.
 
-        public async Task<IActionResult> Table()
+        public async Task<IActionResult> NorthAmericaTable()
         {
 
             var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
@@ -73,6 +73,7 @@ namespace DemoLibrary2.Controllers
             scores.Add(washingtonDCScore);
             scores.Add(miamiScore);
 
+
             List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> cities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
 
             cities.Add(boston);
@@ -82,22 +83,8 @@ namespace DemoLibrary2.Controllers
             cities.Add(miami);
 
             Console.WriteLine(cities);
-
-
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
-
-                mymodel.Boston = boston;
-                mymodel.LasVegas = lasVegas;
-                mymodel.NewYork = newYork;
-                mymodel.WashingtonDC = washingtonDC;
-                mymodel.Miami = miami;
-
-                mymodel.BostonScore = bostonScore;
-                mymodel.LasVegasScore = lasVegasScore;
-                mymodel.NewYorkScore = newYorkScore;
-                mymodel.WashingtonDCScore = washingtonDCScore;
-                mymodel.MiamiScore = miamiScore;
 
                 mymodel.Cities = cities;
                 mymodel.Scores = scores;
@@ -106,21 +93,41 @@ namespace DemoLibrary2.Controllers
             }
         }
 
-        // Your application should provide a drop-down list of continents,
-        // and when one is selected, an ordered table of maximum 5 rows with
-        // the following structure should be displayed
+        public async Task<IActionResult> AfricaTable()
+        {
+            var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
+            var africaCities = africaUA._links.uaitems;
 
-        // should grab top 5 NorthAmericaCities.name, top 5 NorthAmericaScore.teleport_city_score and top 5 NorthAmericaScore.summary
-        // put them into one object and pass into the view.
-        // If I can do this for all the continents, put each top 5 cities, score and summary into their own objects, then I can update
-        // the table dynamically.
+            //var cairoScore = await ScoresProcessor.LoadBostonScores();
+            //var capeTownScore = await ScoresProcessor.LoadLasVegasScores();
+            //var casablancaScore = await ScoresProcessor.LoadNewYorkScores();
+            //var lagosScore = await ScoresProcessor.LoadWashingtonDCScores();
+            //var NairobiScore = await ScoresProcessor.LoadMiamiScores();
+
+            //var cairo = africaCities[0];
+            //var capeTown = africaCities[1];
+            //var casablanca = africaCities[2];
+            //var lagos = africaCities[5];
+            //var Nairobi = africaCities[6];
+
+            return View();
+        }
+
+            // Your application should provide a drop-down list of continents,
+            // and when one is selected, an ordered table of maximum 5 rows with
+            // the following structure should be displayed
+
+            // should grab top 5 NorthAmericaCities.name, top 5 NorthAmericaScore.teleport_city_score and top 5 NorthAmericaScore.summary
+            // put them into one object and pass into the view.
+            // If I can do this for all the continents, put each top 5 cities, score and summary into their own objects, then I can update
+            // the table dynamically.
 
 
-        //https://developers.teleport.org/api/reference/#/
-        // with this page, once I click on a city from the list, can perhaps get the request URL https://api.teleport.org/api/cities/?search=albuquerque
-        // then set the api call to be dynamic based on the city you click on, thereby making one api function that searches dynamically.
+            //https://developers.teleport.org/api/reference/#/
+            // with this page, once I click on a city from the list, can perhaps get the request URL https://api.teleport.org/api/cities/?search=albuquerque
+            // then set the api call to be dynamic based on the city you click on, thereby making one api function that searches dynamically.
 
-        // still should choose top 5 cities for each continent first. 
+            // still should choose top 5 cities for each continent first. 
 
-    }
+        }
 }
