@@ -3,7 +3,7 @@ namespace DemoLibrary2.Models
 {
 	public class ScoresModel
 	{
-        public partial class NorthAmericaScores
+        public partial class Scores
         {
             public class Category
             {

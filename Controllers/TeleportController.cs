@@ -65,29 +65,29 @@ namespace DemoLibrary2.Controllers
             var washingtonDC = northAmericaCities[85];
             var miami = northAmericaCities[47];
 
-            List<ScoresModel.NorthAmericaScores.Root> scores = new List<ScoresModel.NorthAmericaScores.Root>();
+            List<ScoresModel.Scores.Root> northAmericascores = new List<ScoresModel.Scores.Root>();
 
-            scores.Add(bostonScore);
-            scores.Add(lasVegasScore);
-            scores.Add(newYorkScore);
-            scores.Add(washingtonDCScore);
-            scores.Add(miamiScore);
+            northAmericascores.Add(bostonScore);
+            northAmericascores.Add(lasVegasScore);
+            northAmericascores.Add(newYorkScore);
+            northAmericascores.Add(washingtonDCScore);
+            northAmericascores.Add(miamiScore);
 
 
-            List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> cities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
+            List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> northAmericacities = new List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem>();
 
-            cities.Add(boston);
-            cities.Add(lasVegas);
-            cities.Add(newYork);
-            cities.Add(washingtonDC);
-            cities.Add(miami);
+            northAmericacities.Add(boston);
+            northAmericacities.Add(lasVegas);
+            northAmericacities.Add(newYork);
+            northAmericacities.Add(washingtonDC);
+            northAmericacities.Add(miami);
 
-            Console.WriteLine(cities);
+            
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
 
-                mymodel.Cities = cities;
-                mymodel.Scores = scores;
+                mymodel.Cities = northAmericacities;
+                mymodel.Scores = northAmericascores;
 
                 return View(mymodel);
             }
@@ -98,17 +98,19 @@ namespace DemoLibrary2.Controllers
             var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
             var africaCities = africaUA._links.uaitems;
 
-            //var cairoScore = await ScoresProcessor.LoadBostonScores();
-            //var capeTownScore = await ScoresProcessor.LoadLasVegasScores();
-            //var casablancaScore = await ScoresProcessor.LoadNewYorkScores();
-            //var lagosScore = await ScoresProcessor.LoadWashingtonDCScores();
-            //var NairobiScore = await ScoresProcessor.LoadMiamiScores();
+            var cairoScore = await ScoresProcessor.LoadCairoScores();
+            var capeTownScore = await ScoresProcessor.LoadCapeTownScores();
+            var casablancaScore = await ScoresProcessor.LoadCasablancaScores();
+            var lagosScore = await ScoresProcessor.LoadLagosScores();
+            var NairobiScore = await ScoresProcessor.LoadNairobiScores();
 
-            //var cairo = africaCities[0];
-            //var capeTown = africaCities[1];
-            //var casablanca = africaCities[2];
-            //var lagos = africaCities[5];
-            //var Nairobi = africaCities[6];
+            var cairo = africaCities[0];
+            var capeTown = africaCities[1];
+            var casablanca = africaCities[2];
+            var lagos = africaCities[5];
+            var Nairobi = africaCities[6];
+
+            List<ScoresModel.Scores.Root> scores = new List<ScoresModel.Scores.Root>();
 
             return View();
         }

@@ -11,7 +11,7 @@ namespace DemoLibrary2.Models
 		public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> NorthAmericaCities { get; set; }
 
         public List<UrbanAreasModel.NorthAmericaUrbanAreas.UaItem> Cities { get; set; }
-        public List<ScoresModel.NorthAmericaScores.Root> Scores { get; set; }
+        public List<ScoresModel.Scores.Root> Scores { get; set; }
 
         //Dropdown related properties
 
