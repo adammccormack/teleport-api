@@ -22,9 +22,22 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root WashingtonDCScore { get; set; }
         public ScoresModel.Scores.Root MiamiScore { get; set; }
 
+
         //Africa
-        public UrbanAreasModel.UrbanAreas.UaItem AFCities { get; set; }
-        public ScoresModel.Scores.Root AFScores { get; set; }
+        public List<UrbanAreasModel.UrbanAreas.UaItem> AFCities { get; set; }
+        public List<ScoresModel.Scores.Root> AFScores { get; set; }
+
+        public UrbanAreasModel.UrbanAreas.UaItem Cairo { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem CapeTown { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Casablanca { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Lagos { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Nairobi { get; set; }
+
+        public ScoresModel.Scores.Root CairoScore { get; set; }
+        public ScoresModel.Scores.Root CapeTownScore { get; set; }
+        public ScoresModel.Scores.Root CasablancaScore { get; set; }
+        public ScoresModel.Scores.Root LagosScore { get; set; }
+        public ScoresModel.Scores.Root NairobiScore { get; set; }
 
 
 

@@ -297,6 +297,16 @@ namespace DemoLibrary2
 
                 mymodel.AFCities = africaCities;
                 mymodel.AFScores = africaScores;
+                mymodel.Cairo = cairo;
+                mymodel.CairoScore = cairoScore;
+                mymodel.CapeTown = capeTown;
+                mymodel.CapeTownScore = capeTownScore;
+                mymodel.Casablanca = casablanca;
+                mymodel.CasablancaScore = casablancaScore;
+                mymodel.Lagos = lagos;
+                mymodel.LagosScore = lagosScore;
+                mymodel.Nairobi = nairobi;
+                mymodel.NairobiScore = nairobiScore;
 
                 return (mymodel);
             }
