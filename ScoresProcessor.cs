@@ -585,6 +585,16 @@ namespace DemoLibrary2
 
                 mymodel.SouthAmericaCities = southAmericaCities;
                 mymodel.SouthAmericaScores = southAmericaScores;
+                mymodel.Bogota = bogota;
+                mymodel.BogotaScore = bogotaScore;
+                mymodel.Caracas = caracas;
+                mymodel.CaracasScore = caracasScore;
+                mymodel.Medellin = medellin;
+                mymodel.MedellinScore = medellinScore;
+                mymodel.SaoPaulo = saoPaulo;
+                mymodel.SaoPauloScore = saoPauloScore;
+                mymodel.PortoAlegre = portoAlegre;
+                mymodel.PortoAlegreScore = portoAlegreScore;
 
                 return (mymodel);
             }

@@ -18,39 +18,31 @@
             </tr>
         </thead>
         <tbody>
-            @*@foreach (var city in @Model.Cities)
-                {
-                    <tr>
-                        <td>@city.name</td>
-                        <td>@((int)Model.Scores.teleport_city_score)</td>
-                            <td>@Html.Raw(@Model.Scores.summary)</td>
-                    </tr>
-                }*@
-            @*<tr>
-                    <td>@Model.Boston.name</td>
-                    <td>@((int)Model.BostonScore.teleport_city_score)</td>
-                    <td>@Html.Raw(@Model.BostonScore.summary)</td>
-                </tr>
-                <tr>
-                    <td>@Model.LasVegas.name</td>
-                    <td>@((int)@Model.LasVegasScore.teleport_city_score)</td>
-                    <td>@Html.Raw(@Model.LasVegasScore.summary)</td>
-                </tr>
-                <tr>
-                    <td>@Model.NewYork.name</td>
-                    <td>@((int)@Model.NewYorkScore.teleport_city_score)</td>
-                    <td>@Html.Raw(@Model.NewYorkScore.summary)</td>
-                </tr>
-                <tr>
-                    <td>@Model.WashingtonDC.name</td>
-                    <td>@((int)@Model.WashingtonDCScore.teleport_city_score)</td>
-                    <td>@Html.Raw(@Model.WashingtonDCScore.summary)</td>
-                </tr>
-                <tr>
-                    <td>@Model.Miami.name</td>
-                    <td>@((int)@Model.MiamiScore.teleport_city_score)</td>
-                    <td>@Html.Raw(@Model.MiamiScore.summary)</td>
-                </tr>*@
+            <tr>
+                <td>@Model.Bogota.name</td>
+                <td>@((int)Model.BogotaScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.BogotaScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Caracas.name</td>
+                <td>@((int)@Model.CaracasScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.CaracasScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Medellin.name</td>
+                <td>@((int)@Model.MedellinScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.MedellinScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.SaoPaulo.name</td>
+                <td>@((int)@Model.SaoPauloScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.SaoPauloScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.PortoAlegre.name</td>
+                <td>@((int)@Model.PortoAlegreScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.PortoAlegreScore.summary)</td>
+            </tr>
         </tbody>
     </table>
 </div>
