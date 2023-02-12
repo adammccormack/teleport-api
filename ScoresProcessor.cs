@@ -151,6 +151,17 @@ namespace DemoLibrary2
 
                 mymodel.NACities = northAmericaCities;
                 mymodel.NAScores = northAmericascores;
+                mymodel.Boston = boston;
+                mymodel.BostonScore = bostonScore;
+                mymodel.LasVegas = lasVegas;
+                mymodel.LasVegasScore = lasVegasScore;
+                mymodel.NewYork = newYork;
+                mymodel.NewYorkScore = newYorkScore;
+                mymodel.WashingtonDC = washingtonDC;
+                mymodel.WashingtonDCScore = washingtonDCScore;
+                mymodel.Miami = miami;
+                mymodel.MiamiScore = miamiScore;
+
 
                 return (mymodel);
             }

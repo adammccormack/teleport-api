@@ -1,56 +1,48 @@
 ﻿@using DemoLibrary2.Models
 @model TeleportViewModel
 
-    @{
-        ViewData["Title"] = "NorthAmericaTable";
-    }
+@{
+    ViewData["Title"] = "NorthAmericaTable";
+}
 
-    <h2>City Summaries</h2>
+<h2>City Summaries</h2>
 
-    <div class="row">
-        <div class="col-md-12"></div>
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>City</th>
-                    <th>Score</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var score in @Model.NAScores)
-                    {
-                        <tr>
-                        <td>@Model.NACities</td>
-                        <td>@((int)score.teleport_city_score)</td>
-                        <td>@Html.Raw(score.summary)</td>
-                        </tr>
-                    }
-                @*<tr>
-            <td>@Model.Boston.name</td>
-            <td>@((int)Model.BostonScore.teleport_city_score)</td>
-            <td>@Html.Raw(@Model.BostonScore.summary)</td>
-        </tr>
-        <tr>
-            <td>@Model.LasVegas.name</td>
-            <td>@((int)@Model.LasVegasScore.teleport_city_score)</td>
-            <td>@Html.Raw(@Model.LasVegasScore.summary)</td>
-        </tr>
-        <tr>
-            <td>@Model.NewYork.name</td>
-            <td>@((int)@Model.NewYorkScore.teleport_city_score)</td>
-            <td>@Html.Raw(@Model.NewYorkScore.summary)</td>
-        </tr>
-        <tr>
-            <td>@Model.WashingtonDC.name</td>
-            <td>@((int)@Model.WashingtonDCScore.teleport_city_score)</td>
-            <td>@Html.Raw(@Model.WashingtonDCScore.summary)</td>
-        </tr>
-        <tr>
-            <td>@Model.Miami.name</td>
-            <td>@((int)@Model.MiamiScore.teleport_city_score)</td>
-            <td>@Html.Raw(@Model.MiamiScore.summary)</td>
-        </tr>*@
-            </tbody>
-        </table>
-    </div>
+<div class="row">
+    <div class="col-md-12"></div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Score</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Boston.name</td>
+                <td>@((int)@Model.BostonScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.BostonScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.LasVegas.name</td>
+                <td>@((int)@Model.LasVegasScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.LasVegasScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.NewYork.name</td>
+                <td>@((int)@Model.NewYorkScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.NewYorkScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.WashingtonDC.name</td>
+                <td>@((int)@Model.WashingtonDCScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.WashingtonDCScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Miami.name</td>
+                <td>@((int)@Model.MiamiScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.MiamiScore.summary)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

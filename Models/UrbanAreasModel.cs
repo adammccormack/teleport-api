@@ -42,6 +42,11 @@ namespace DemoLibrary2.Models
             {
                 public string href { get; set; }
                 public string name { get; set; }
+
+                public static implicit operator UaItem(List<UaItem> v)
+                {
+                    throw new NotImplementedException();
+                }
             }
         }
     }
