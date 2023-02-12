@@ -16,7 +16,6 @@ namespace DemoLibrary2
 {
     public class ScoresProcessor
     {
-        // North America
         public class NorthAmerica
         {
             public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
@@ -138,7 +137,6 @@ namespace DemoLibrary2
                 northAmericascores.Add(washingtonDCScore);
                 northAmericascores.Add(miamiScore);
 
-
                 List<UrbanAreasModel.UrbanAreas.UaItem> northAmericaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
 
                 northAmericaCities.Add(boston);
@@ -162,12 +160,10 @@ namespace DemoLibrary2
                 mymodel.Miami = miami;
                 mymodel.MiamiScore = miamiScore;
 
-
                 return (mymodel);
             }
         }
 
-        // Africa
         public class Africa
         {
             public static async Task<ScoresModel.Scores.Root> LoadCairoScores()
@@ -311,7 +307,7 @@ namespace DemoLibrary2
                 return (mymodel);
             }
         }
-        //Asia
+
         public class Asia
         {
             public static async Task<ScoresModel.Scores.Root> LoadDohaScores()

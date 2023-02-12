@@ -104,7 +104,6 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root NaplesScore { get; set; }
         public ScoresModel.Scores.Root VilniusScore { get; set; }
 
-
         //Continent
         public List<ContinentsModel.ContinentItem> Continents { get; set; }
         public string? SelectedContinent { get; set; }

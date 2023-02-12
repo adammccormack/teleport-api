@@ -16,7 +16,6 @@ namespace DemoLibrary2.Controllers
         {
             ApiHelper.InitializeClient();
 
-            //TODO: Refactor all of this
             var continentItems = await ContinentsProcessor.LoadContinents();
             var continents = continentItems._links.continentitems;
             {
@@ -35,15 +34,30 @@ namespace DemoLibrary2.Controllers
         public IActionResult Index(TeleportViewModel model)
         {
             var selectedContinent = model.SelectedContinent;
-            return RedirectToAction("NorthAmericaTable");
-        }
 
-        // IDEA
-        // once continent is selected, send that value to Table(selectedcontinent)
-        // put an if statement OR a case/when statement inside table() controller, if selectedContinent matches one of these cases
-        // then send only that model for that continents 5 cities to the view
-        // the view then has a generic for each loop for the model based on city, score and summary.
-        // each continents 5 city model will be pre-built and grouped in here.
+            switch(selectedContinent)
+            {
+                case "North America":
+                    return RedirectToAction("NorthAmericaTable");
+                    break;
+                case "South America":
+                    return RedirectToAction("SouthAmericaTable");
+                    break;
+                case "Africa":
+                    return RedirectToAction("AfricaTable");
+                    break;
+                case "Asia":
+                    return RedirectToAction("AsiaTable");
+                    break;
+                case "Oceania":
+                    return RedirectToAction("OceaniaTable");
+                    break;
+                case "Europe":
+                    return RedirectToAction("EuropeTable");
+                    break;
+            }
+            return RedirectToAction("Index");
+        }
 
         public async Task<IActionResult> NorthAmericaTable()
         {
@@ -80,22 +94,5 @@ namespace DemoLibrary2.Controllers
             var mymodel = await ScoresProcessor.Europe.ProcessNameAndScores();
             return View(mymodel);
         }
-
-        // Your application should provide a drop-down list of continents,
-        // and when one is selected, an ordered table of maximum 5 rows with
-        // the following structure should be displayed
-
-        // should grab top 5 NorthAmericaCities.name, top 5 NorthAmericaScore.teleport_city_score and top 5 NorthAmericaScore.summary
-        // put them into one object and pass into the view.
-        // If I can do this for all the continents, put each top 5 cities, score and summary into their own objects, then I can update
-        // the table dynamically.
-
-
-        //https://developers.teleport.org/api/reference/#/
-        // with this page, once I click on a city from the list, can perhaps get the request URL https://api.teleport.org/api/cities/?search=albuquerque
-        // then set the api call to be dynamic based on the city you click on, thereby making one api function that searches dynamically.
-
-        // still should choose top 5 cities for each continent first. 
-
     }
 }
