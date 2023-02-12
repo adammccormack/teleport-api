@@ -149,8 +149,8 @@ namespace DemoLibrary2
 
                 TeleportViewModel mymodel = new TeleportViewModel();
 
-                mymodel.NACities = northAmericaCities;
-                mymodel.NAScores = northAmericascores;
+                mymodel.NorthAmericaCities = northAmericaCities;
+                mymodel.NorthAmericaScores = northAmericascores;
                 mymodel.Boston = boston;
                 mymodel.BostonScore = bostonScore;
                 mymodel.LasVegas = lasVegas;
@@ -295,8 +295,8 @@ namespace DemoLibrary2
 
                 TeleportViewModel mymodel = new TeleportViewModel();
 
-                mymodel.AFCities = africaCities;
-                mymodel.AFScores = africaScores;
+                mymodel.AfricaCities = africaCities;
+                mymodel.AfricaScores = africaScores;
                 mymodel.Cairo = cairo;
                 mymodel.CairoScore = cairoScore;
                 mymodel.CapeTown = capeTown;
@@ -441,6 +441,16 @@ namespace DemoLibrary2
 
                 mymodel.AsiaCities = asiaCities;
                 mymodel.AsiaScores = asiaScores;
+                mymodel.Doha = doha;
+                mymodel.DohaScore = dohaScore;
+                mymodel.Manila = manila;
+                mymodel.ManilaScore = manilaScore;
+                mymodel.Taipei = taipei;
+                mymodel.TaipeiScore = taipeiScore;
+                mymodel.HongKong = hongKong;
+                mymodel.HongKongScore = hongKongScore;
+                mymodel.Tokyo = tokyo;
+                mymodel.TokyoScore = tokyoScore;
 
                 return (mymodel);
             }

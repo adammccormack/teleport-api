@@ -7,8 +7,8 @@ namespace DemoLibrary2.Models
 	public class TeleportViewModel
 
 	{   //North America
-        public List<UrbanAreasModel.UrbanAreas.UaItem> NACities { get; set; }
-        public List<ScoresModel.Scores.Root> NAScores { get; set; }
+        public List<UrbanAreasModel.UrbanAreas.UaItem> NorthAmericaCities { get; set; }
+        public List<ScoresModel.Scores.Root> NorthAmericaScores { get; set; }
 
         public UrbanAreasModel.UrbanAreas.UaItem Boston { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem LasVegas { get; set; }
@@ -24,8 +24,8 @@ namespace DemoLibrary2.Models
 
 
         //Africa
-        public List<UrbanAreasModel.UrbanAreas.UaItem> AFCities { get; set; }
-        public List<ScoresModel.Scores.Root> AFScores { get; set; }
+        public List<UrbanAreasModel.UrbanAreas.UaItem> AfricaCities { get; set; }
+        public List<ScoresModel.Scores.Root> AfricaScores { get; set; }
 
         public UrbanAreasModel.UrbanAreas.UaItem Cairo { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem CapeTown { get; set; }
@@ -40,9 +40,22 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root NairobiScore { get; set; }
 
 
-
+        //South America
         public List<UrbanAreasModel.UrbanAreas.UaItem> AsiaCities { get; set; }
         public List<ScoresModel.Scores.Root> AsiaScores { get; set; }
+
+        public UrbanAreasModel.UrbanAreas.UaItem Doha { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Manila { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Taipei { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem HongKong { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Tokyo { get; set; }
+
+        public ScoresModel.Scores.Root DohaScore { get; set; }
+        public ScoresModel.Scores.Root ManilaScore { get; set; }
+        public ScoresModel.Scores.Root TaipeiScore { get; set; }
+        public ScoresModel.Scores.Root HongKongScore { get; set; }
+        public ScoresModel.Scores.Root TokyoScore { get; set; }
+
 
         public List<UrbanAreasModel.UrbanAreas.UaItem> SouthAmericaCities { get; set; }
         public List<ScoresModel.Scores.Root> SouthAmericaScores { get; set; }
