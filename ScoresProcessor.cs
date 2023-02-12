@@ -729,6 +729,16 @@ namespace DemoLibrary2
 
                 mymodel.OceaniaCities = oceaniaCities;
                 mymodel.OceaniaScores = oceaniaScores;
+                mymodel.Wellington = wellington;
+                mymodel.WellingtonScore = wellingtonScore;
+                mymodel.Adelaide = adelaide;
+                mymodel.AdelaideScore = adelaideScore;
+                mymodel.ChristChurch = christChurch;
+                mymodel.ChristChurchScore = christChurchScore;
+                mymodel.Melbourne = melbourne;
+                mymodel.MelbourneScore = melbourneScore;
+                mymodel.Brisbane = brisbane;
+                mymodel.BrisbaneScore = brisbaneScore;
 
                 return (mymodel);
             }
