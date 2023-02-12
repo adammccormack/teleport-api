@@ -92,6 +92,20 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem> EuropeCities { get; set; }
         public List<ScoresModel.Scores.Root> EuropeScores { get; set; }
 
+        public UrbanAreasModel.UrbanAreas.UaItem Aarhus { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Chisinau { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Lille { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Naples { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem Vilnius { get; set; }
+
+        public ScoresModel.Scores.Root AarhusScore { get; set; }
+        public ScoresModel.Scores.Root ChisinauScore { get; set; }
+        public ScoresModel.Scores.Root LilleScore { get; set; }
+        public ScoresModel.Scores.Root NaplesScore { get; set; }
+        public ScoresModel.Scores.Root VilniusScore { get; set; }
+
+
+        //Continent
         public List<ContinentsModel.ContinentItem> Continents { get; set; }
         public string? SelectedContinent { get; set; }
         public List<SelectListItem>? ContinentsSelectList { get; set; }

@@ -873,6 +873,16 @@ namespace DemoLibrary2
 
                 mymodel.EuropeCities = europeCities;
                 mymodel.EuropeScores = europeScores;
+                mymodel.Aarhus = aarhus;
+                mymodel.AarhusScore = aarhusScore;
+                mymodel.Chisinau = chisinau;
+                mymodel.ChisinauScore = chisinauScore;
+                mymodel.Lille = lille;
+                mymodel.LilleScore = lilleScore;
+                mymodel.Naples = naples;
+                mymodel.NaplesScore = naplesScore;
+                mymodel.Vilnius = vilnius;
+                mymodel.VilniusScore = vilniusScore;
 
                 return (mymodel);
             }
