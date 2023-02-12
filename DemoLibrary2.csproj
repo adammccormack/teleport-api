@@ -14,7 +14,6 @@
     <None Remove="Newtonsoft.Json" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Views\Teleport\" />
-    <None Remove="Views\Sun\" />
     <None Remove="jQuery" />
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +34,5 @@
 
   <ItemGroup>
     <Folder Include="Views\Teleport\" />
-    <Folder Include="Views\Sun\" />
   </ItemGroup>
 </Project>
