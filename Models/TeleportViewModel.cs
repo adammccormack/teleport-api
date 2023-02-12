@@ -5,9 +5,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace DemoLibrary2.Models
 {
 	public class TeleportViewModel
-	{
-		public List<ContinentsModel.ContinentItem> Continents { get; set; }
 
+	{
         public List<UrbanAreasModel.UrbanAreas.UaItem> NACities { get; set; }
         public List<ScoresModel.Scores.Root> NAScores { get; set; }
 
@@ -26,9 +25,8 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem> EuropeCities { get; set; }
         public List<ScoresModel.Scores.Root> EuropeScores { get; set; }
 
-        //Dropdown related properties
-
+        public List<ContinentsModel.ContinentItem> Continents { get; set; }
         public string? SelectedContinent { get; set; }
-		public List<SelectListItem>? ContinentsSelectList { get; set; }
+        public List<SelectListItem>? ContinentsSelectList { get; set; }
     }
 }

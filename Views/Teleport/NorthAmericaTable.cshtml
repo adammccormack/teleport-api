@@ -18,12 +18,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var city in @Model.NACities)
+                @foreach (var score in @Model.NAScores)
                     {
                         <tr>
-                        <td>@city.name</td>
-                        @*<td>@((int)Model.Scores.teleport_city_score)</td>
-                        <td>@Html.Raw(@Model.Scores.summary)</td>*@
+                        <td>@Model.NACities</td>
+                        <td>@((int)score.teleport_city_score)</td>
+                        <td>@Html.Raw(score.summary)</td>
                         </tr>
                     }
                 @*<tr>

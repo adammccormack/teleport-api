@@ -17,8 +17,6 @@ namespace DemoLibrary2.Controllers
             ApiHelper.InitializeClient();
 
             //TODO: Refactor all of this
-
-            // move this type of logic to a helper function in continents processor, do the same where ever items are there.
             var continentItems = await ContinentsProcessor.LoadContinents();
             var continents = continentItems._links.continentitems;
             {
