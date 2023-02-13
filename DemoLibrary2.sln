@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoLibrary2", "DemoLibrary2.csproj", "{A0C0BC43-7340-4AED-8A4C-EF49E68F5389}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teleport-api.tests", "..\teleport-api.tests\teleport-api.tests.csproj", "{0E948FDD-0862-4183-B0A7-CE732AF6B112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A0C0BC43-7340-4AED-8A4C-EF49E68F5389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C0BC43-7340-4AED-8A4C-EF49E68F5389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C0BC43-7340-4AED-8A4C-EF49E68F5389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E948FDD-0862-4183-B0A7-CE732AF6B112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E948FDD-0862-4183-B0A7-CE732AF6B112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E948FDD-0862-4183-B0A7-CE732AF6B112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E948FDD-0862-4183-B0A7-CE732AF6B112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
