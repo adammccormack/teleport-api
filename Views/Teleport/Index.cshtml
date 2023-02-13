@@ -16,7 +16,7 @@
 <form asp-controller="Teleport" asp-action="Index" method="post">
     <div class="mb-3">
         <label class="form-label">Continents</label>
-        <select class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
+        <select id="select-continent"class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
             <option value="NOSELECTEDVALUE">  Please Select A Continent  </option>
         </select>
     </div>
@@ -24,3 +24,14 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#select-continent").change(function () {
+                var continents = document.getElementById("select-continent");
+            })
+        });
+    </script>
+}
