@@ -26,7 +26,6 @@ namespace DemoLibrary2
                     var jsonString = await response.Content.ReadAsStringAsync();
 
                     ContinentsModel.Root continentItems = JsonConvert.DeserializeObject<ContinentsModel.Root>(jsonString);
-                    
                     return continentItems;
                 }
                 else

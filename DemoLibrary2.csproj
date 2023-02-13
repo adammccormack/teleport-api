@@ -15,6 +15,7 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Views\Teleport\" />
     <None Remove="jQuery" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -34,5 +35,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Teleport\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>
