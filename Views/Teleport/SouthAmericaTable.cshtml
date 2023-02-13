@@ -1,0 +1,48 @@
+﻿@using DemoLibrary2.Models
+@model TeleportViewModel
+
+@{
+    ViewData["Title"] = "SouthAmericaTable";
+}
+
+<h2>City Summaries</h2>
+
+<div class="row">
+    <div class="col-md-12"></div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Score</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Bogota.name</td>
+                <td>@((int)Model.BogotaScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.BogotaScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Caracas.name</td>
+                <td>@((int)@Model.CaracasScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.CaracasScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Medellin.name</td>
+                <td>@((int)@Model.MedellinScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.MedellinScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.SaoPaulo.name</td>
+                <td>@((int)@Model.SaoPauloScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.SaoPauloScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.PortoAlegre.name</td>
+                <td>@((int)@Model.PortoAlegreScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.PortoAlegreScore.summary)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

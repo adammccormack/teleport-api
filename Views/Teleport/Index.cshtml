@@ -1,46 +1,24 @@
 ﻿@using DemoLibrary2.Models
 @model TeleportViewModel
 
-
 @{
     ViewData["Title"] = "Index";
 }
 
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @TempData["AlertMessage"]
+    </div>
+}
+
 <h2>Teleport Scores</h2>
 
-<form asp-controller="Teleport" asp-action="Index" method="post">
+<form id="select-form" asp-controller="Teleport" asp-action="Index" method="post">
     <div class="mb-3">
-        <label class="form-label">Select Continent</label>
-        <select class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
+        <label class="form-label">Continents</label>
+        <select id="select-continent" class="form-select" onchange="this.form.submit()" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
+            <option value="NOSELECTEDVALUE">Please Select A Continent</option>
         </select>
     </div>
-    <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
 </form>
-
-@*<table>
-
-        @foreach (UrbanAreasModel.NorthAmericaUrbanAreas.UaItem city in Model.NorthAmericaCities)
-        {
-            <tr>
-                <td>@city.name</td>
-                <td>@city.href</td>
-            </tr>
-        }
-    </table>
-
-*@
-
-@*<table>
-
-        @foreach (ScoresModel.NorthAmericaScores.Root score in Model.NorthAmericaScore)
-        {
-            <tr>
-                <td>@score.teleport_city_score.</td>
-                <td>@score.summary</td>
-            </tr>
-        }
-    </table>*@
-
-

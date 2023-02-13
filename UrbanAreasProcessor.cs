@@ -15,18 +15,15 @@ namespace DemoLibrary2
 {
 	public class UrbanAreasProcessor
 	{
-        public static async Task<UrbanAreasModel.AfricaUrbanAreas.Root> LoadAfricaUrbanAreas()
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadAfricaUrbanAreas()
         {
             string africaUrl = "https://api.teleport.org/api/continents/geonames:AF/urban_areas/";
-
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(africaUrl))
             {
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
-
-                    UrbanAreasModel.AfricaUrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.AfricaUrbanAreas.Root>(jsonString);
-
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
                     return myDeserializedClass;
                 }
                 else
@@ -36,18 +33,15 @@ namespace DemoLibrary2
             }
         }
 
-        public static async Task<UrbanAreasModel.AsiaUrbanAreas.Root> LoadAsiaUrbanAreas()
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadAsiaUrbanAreas()
         {
             string asiaURL = "https://api.teleport.org/api/continents/geonames:AS/urban_areas/";
-
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(asiaURL))
             {
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
-
-                    UrbanAreasModel.AsiaUrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.AsiaUrbanAreas.Root>(jsonString);
-
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
                     return myDeserializedClass;
                 }
                 else
@@ -57,18 +51,69 @@ namespace DemoLibrary2
             }
         }
 
-        public static async Task<UrbanAreasModel.NorthAmericaUrbanAreas.Root> LoadNorthAmericaUrbanAreas()
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadSouthAmericaUrbanAreas()
         {
-            string asiaURL = "https://api.teleport.org/api/continents/geonames:NA/urban_areas/";
-
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(asiaURL))
+            string southAmericaUrl = "https://api.teleport.org/api/continents/geonames:SA/urban_areas/";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(southAmericaUrl))
             {
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
+                    return myDeserializedClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
 
-                    UrbanAreasModel.NorthAmericaUrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.NorthAmericaUrbanAreas.Root>(jsonString);
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadNorthAmericaUrbanAreas()
+        {
+            string northAmerciaURL = "https://api.teleport.org/api/continents/geonames:NA/urban_areas/";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(northAmerciaURL))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
+                    return myDeserializedClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
 
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadOceaniaUrbanAreas()
+        {
+            string northAmerciaURL = "https://api.teleport.org/api/continents/geonames:OC/urban_areas/";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(northAmerciaURL))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
+                    return myDeserializedClass;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadEuropeUrbanAreas()
+        {
+            string northAmerciaURL = "https://api.teleport.org/api/continents/geonames:EU/urban_areas/";
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(northAmerciaURL))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    UrbanAreasModel.UrbanAreas.Root myDeserializedClass = JsonConvert.DeserializeObject<UrbanAreasModel.UrbanAreas.Root>(jsonString);
                     return myDeserializedClass;
                 }
                 else

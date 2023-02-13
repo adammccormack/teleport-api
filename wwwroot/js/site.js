@@ -3,3 +3,13 @@
 
 // Write your JavaScript code.
 
+$(function () {
+
+    $.ajax({
+        type: "GET",
+        url: "https://api.teleport.org/api/continents/",
+        success: function (data) {
+            console.log("success", data);
+        }
+    });
+});

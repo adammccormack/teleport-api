@@ -1,0 +1,48 @@
+﻿@using DemoLibrary2.Models
+@model TeleportViewModel
+
+@{
+    ViewData["Title"] = "AsiaTable";
+}
+
+<h2>City Summaries</h2>
+
+<div class="row">
+    <div class="col-md-12"></div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Score</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Doha.name</td>
+                <td>@((int)Model.DohaScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.DohaScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Manila.name</td>
+                <td>@((int)@Model.ManilaScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.ManilaScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Taipei.name</td>
+                <td>@((int)@Model.TaipeiScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.TaipeiScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.HongKong.name</td>
+                <td>@((int)@Model.HongKongScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.HongKongScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Tokyo.name</td>
+                <td>@((int)@Model.TokyoScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.TokyoScore.summary)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

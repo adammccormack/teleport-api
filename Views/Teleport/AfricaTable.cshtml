@@ -1,0 +1,48 @@
+﻿@using DemoLibrary2.Models
+@model TeleportViewModel
+
+@{
+    ViewData["Title"] = "AfricaTable";
+}
+
+<h2>City Summaries</h2>
+
+<div class="row">
+    <div class="col-md-12"></div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Score</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Cairo.name</td>
+                <td>@((int)Model.CairoScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.CairoScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.CapeTown.name</td>
+                <td>@((int)@Model.CapeTownScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.CapeTownScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Casablanca.name</td>
+                <td>@((int)@Model.CasablancaScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.CasablancaScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Lagos.name</td>
+                <td>@((int)@Model.LagosScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.LagosScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Nairobi.name</td>
+                <td>@((int)@Model.NairobiScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.NairobiScore.summary)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

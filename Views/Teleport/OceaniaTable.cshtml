@@ -1,0 +1,48 @@
+﻿@using DemoLibrary2.Models
+@model TeleportViewModel
+
+@{
+    ViewData["Title"] = "OceaniaTable";
+}
+
+<h2>City Summaries</h2>
+
+<div class="row">
+    <div class="col-md-12"></div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Score</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Wellington.name</td>
+                <td>@((int)Model.WellingtonScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.WellingtonScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Adelaide.name</td>
+                <td>@((int)@Model.AdelaideScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.AdelaideScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.ChristChurch.name</td>
+                <td>@((int)@Model.ChristChurchScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.ChristChurchScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Melbourne.name</td>
+                <td>@((int)@Model.MelbourneScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.MelbourneScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Brisbane.name</td>
+                <td>@((int)@Model.BrisbaneScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.BrisbaneScore.summary)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

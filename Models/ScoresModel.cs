@@ -3,8 +3,7 @@ namespace DemoLibrary2.Models
 {
 	public class ScoresModel
 	{
-
-        public partial class NorthAmericaScores
+        public partial class Scores
         {
             public class Category
             {
@@ -32,6 +31,11 @@ namespace DemoLibrary2.Models
                 public List<Category> categories { get; set; }
                 public string summary { get; set; }
                 public double teleport_city_score { get; set; }
+
+                public static implicit operator Root(List<Root> v)
+                {
+                    throw new NotImplementedException();
+                }
             }
 
             public class Self
