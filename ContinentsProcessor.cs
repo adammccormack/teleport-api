@@ -20,7 +20,6 @@ namespace DemoLibrary2
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
-
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
