@@ -13,7 +13,7 @@
 
 <h2>Teleport Scores</h2>
 
-<form asp-controller="Teleport" asp-action="Index" method="post">
+@*<form id="select-form" asp-controller="Teleport" asp-action="Index" method="post">
     <div class="mb-3">
         <label class="form-label">Continents</label>
         <select id="select-continent"class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
@@ -23,15 +23,39 @@
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-</form>
+</form>*@
+
+<form asp-controller="Teleport" asp-action="Index" method="post">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/Teleport/AfricaTable">Africa</a></li>
+        <li><a class="dropdown-item" href="/Teleport/Antarctica">Antarctica</a></li>
+        <li><a class="dropdown-item" href="/Teleport/AsiaTable">Asia</a></li>
+        <li><a class="dropdown-item" href="/Teleport/EuropeTable">Europe</a></li>
+        <li><a class="dropdown-item" href="/Teleport/NorthAmericaTable">North America</a></li>
+        <li><a class="dropdown-item" href="/Teleport/OceaniaTable">Oceania</a></li>
+        <li><a class="dropdown-item" href="/Teleport/SouthAmericaTable">South America</a></li>
+    </ul>
+</div>
+    </form>
+
 
 @section Scripts {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#select-continent").change(function () {
-                var continents = document.getElementById("select-continent");
-            })
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //$("#select-continent").click(function () {
+            //    var form = $("select-continent");
+            //    var url = form.attr("action");
+            //    var formData = form.serialize();
+            //    $.post(url, formData, function (data) {
+            //        $("#msg").html(data);
+            //    });
+            //});
         });
     </script>
 }
