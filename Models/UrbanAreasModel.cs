@@ -20,11 +20,14 @@ namespace DemoLibrary2.Models
 
             public class Links
             {
+
                 public List<Cury> curies { get; set; }
                 public Self self { get; set; }
 
                 [JsonProperty("ua:items")]
                 public List<UaItem> uaitems { get; set; }
+                public object continent { get; set; }
+                public object href { get; set; }
             }
 
             public class Root
