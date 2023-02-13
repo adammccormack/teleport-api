@@ -5,13 +5,19 @@
     ViewData["Title"] = "Index";
 }
 
+@if (TempData["AlertMessage"] != null){
+<div class="alert alert-primary" role="alert">
+    @TempData["AlertMessage"]
+</div>
+}
+
 <h2>Teleport Scores</h2>
 
 <form asp-controller="Teleport" asp-action="Index" method="post">
     <div class="mb-3">
         <label class="form-label">Continents</label>
         <select class="form-select" asp-items="Model.ContinentsSelectList" asp-for="SelectedContinent">
-            <option value="NOSELECTEDVALUE">--Please Select A Continent--</option>
+            <option value="NOSELECTEDVALUE">  Please Select A Continent  </option>
         </select>
     </div>
     <div class="mb-3">

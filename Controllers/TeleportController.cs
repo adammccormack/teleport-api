@@ -55,6 +55,10 @@ namespace DemoLibrary2.Controllers
                 case "Europe":
                     return RedirectToAction("EuropeTable");
                     break;
+                case "Antarctica":
+                    TempData["AlertMessage"] = "Sorry no urban areas for this continent : (";
+                    return RedirectToAction("Index");
+                    break;
             }
             return RedirectToAction("Index");
         }
