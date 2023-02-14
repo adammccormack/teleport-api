@@ -9,7 +9,6 @@ namespace DemoLibrary2.Models
 {
 	public partial class ContinentsModel
 	{
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public class ContinentItem
         {
             public string? href { get; set; }
