@@ -16,6 +16,7 @@
     <None Remove="Views\Teleport\" />
     <None Remove="jQuery" />
     <None Remove="Helpers\" />
+    <None Remove="Processors\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -36,5 +37,6 @@
   <ItemGroup>
     <Folder Include="Views\Teleport\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Processors\" />
   </ItemGroup>
 </Project>

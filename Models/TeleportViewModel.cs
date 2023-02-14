@@ -22,7 +22,6 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root WashingtonDCScore { get; set; }
         public ScoresModel.Scores.Root MiamiScore { get; set; }
 
-
         //Africa
         public List<UrbanAreasModel.UrbanAreas.UaItem> AfricaCities { get; set; }
         public List<ScoresModel.Scores.Root> AfricaScores { get; set; }
@@ -38,7 +37,6 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root CasablancaScore { get; set; }
         public ScoresModel.Scores.Root LagosScore { get; set; }
         public ScoresModel.Scores.Root NairobiScore { get; set; }
-
 
         //Asia
         public List<UrbanAreasModel.UrbanAreas.UaItem> AsiaCities { get; set; }
