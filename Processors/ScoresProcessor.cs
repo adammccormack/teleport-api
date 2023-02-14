@@ -70,19 +70,19 @@ namespace DemoLibrary2
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
+
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var northAmericaCities = northAmericaUA._links.uaitems;
 
                 mymodel.Boston = northAmericaCities[9];
-                mymodel.LasVegas = northAmericaCities[40];
-                mymodel.NewYork = northAmericaCities[53];
-                mymodel.WashingtonDC = northAmericaCities[85];
-                mymodel.Miami = northAmericaCities[47];
-
                 mymodel.BostonScore = await LoadBostonScores();
+                mymodel.LasVegas = northAmericaCities[40];
                 mymodel.LasVegasScore = await LoadLasVegasScores();
+                mymodel.NewYork = northAmericaCities[53];
                 mymodel.NewYorkScore = await LoadNewYorkScores();
+                mymodel.WashingtonDC = northAmericaCities[85];
                 mymodel.WashingtonDCScore = await LoadWashingtonDCScores();
+                mymodel.Miami = northAmericaCities[47];
                 mymodel.MiamiScore = await LoadMiamiScores();
 
                 return (mymodel);
@@ -335,4 +335,3 @@ namespace DemoLibrary2
         }
     }
 }
-

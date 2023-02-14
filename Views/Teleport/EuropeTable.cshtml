@@ -19,27 +19,27 @@
         </thead>
         <tbody>
        <tr>
-            <td>@Model.Aarhus.name</td>
+            <td>@Model.Aarhus?.name</td>
             <td>@((int)Model.AarhusScore.teleport_city_score)</td>
             <td>@Html.Raw(@Model.AarhusScore.summary)</td>
         </tr>
         <tr>
-            <td>@Model.Chisinau.name</td>
+            <td>@Model.Chisinau?.name</td>
             <td>@((int)@Model.ChisinauScore.teleport_city_score)</td>
             <td>@Html.Raw(@Model.ChisinauScore.summary)</td>
         </tr>
         <tr>
-            <td>@Model.Lille.name</td>
+            <td>@Model.Lille?.name</td>
             <td>@((int)@Model.LilleScore.teleport_city_score)</td>
             <td>@Html.Raw(@Model.LilleScore.summary)</td>
         </tr>
         <tr>
-            <td>@Model.Naples.name</td>
+            <td>@Model.Naples?.name</td>
             <td>@((int)@Model.NaplesScore.teleport_city_score)</td>
             <td>@Html.Raw(@Model.NaplesScore.summary)</td>
         </tr>
         <tr>
-            <td>@Model.Vilnius.name</td>
+            <td>@Model.Vilnius?.name</td>
             <td>@((int)@Model.VilniusScore.teleport_city_score)</td>
             <td>@Html.Raw(@Model.VilniusScore.summary)</td>
         </tr>

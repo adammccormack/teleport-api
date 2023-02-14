@@ -18,7 +18,6 @@ namespace DemoLibrary
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             // Adds a Header in the HTTP request that says give me JSON, not a webpage with tags etc, just data.'
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            ApiClient.DefaultRequestHeaders.Add("x-fail", "true");
         }
     };
 }
