@@ -33,6 +33,24 @@ namespace DemoLibrary2
             }
         }
 
+        public static async Task<ScoresModel.Scores.Root> LoadScoresByCity(string city)
+        {
+            string cityUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
+            using (HttpResponseMessage cityResponse = await ApiHelper.ApiClient.GetAsync(cityUrl))
+            {
+                if (cityResponse.IsSuccessStatusCode)
+                {
+                    var cityJsonString = await cityResponse.Content.ReadAsStringAsync();
+                    var cityScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cityJsonString);
+                    return (cityScores);
+                }
+                else
+                {
+                    throw new Exception(cityResponse.ReasonPhrase);
+                }
+            }
+        }
+
         public class NorthAmerica
         {
             public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
@@ -97,122 +115,130 @@ namespace DemoLibrary2
             public static async Task<ScoresModel.Scores.Root> LoadCairoScores()
             {
                 string cairoUrl = "https://api.teleport.org/api/urban_areas/slug:cairo/scores/";
-                using (HttpResponseMessage cairoResponse = await ApiHelper.ApiClient.GetAsync(cairoUrl))
-                {
-                    if (cairoResponse.IsSuccessStatusCode)
-                    {
-                        var cairoJsonString = await cairoResponse.Content.ReadAsStringAsync();
-                        var cairoScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cairoJsonString);
-                        return (cairoScores);
-                    }
-                    else
-                    {
-                        throw new Exception(cairoResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(cairoUrl);
             }
+
+            //public static async Task<ScoresModel.Scores.Root> LoadCairoScores()
+            //{
+            //    string cairoUrl = "https://api.teleport.org/api/urban_areas/slug:cairo/scores/";
+            //    using (HttpResponseMessage cairoResponse = await ApiHelper.ApiClient.GetAsync(cairoUrl))
+            //    {
+            //        if (cairoResponse.IsSuccessStatusCode)
+            //        {
+            //            var cairoJsonString = await cairoResponse.Content.ReadAsStringAsync();
+            //            var cairoScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cairoJsonString);
+            //            return (cairoScores);
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(cairoResponse.ReasonPhrase);
+            //        }
+            //    }
+            //}
 
             public static async Task<ScoresModel.Scores.Root> LoadCapeTownScores()
             {
                 string capeTownUrl = "https://api.teleport.org/api/urban_areas/slug:cape-town/scores/";
-                using (HttpResponseMessage capeTownResponse = await ApiHelper.ApiClient.GetAsync(capeTownUrl))
-                {
-                    if (capeTownResponse.IsSuccessStatusCode)
-                    {
-                        var capeTownJsonString = await capeTownResponse.Content.ReadAsStringAsync();
-                        var capeTownScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(capeTownJsonString);
-                        return (capeTownScores);
-                    }
-                    else
-                    {
-                        throw new Exception(capeTownResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(capeTownUrl);
             }
+
+            //public static async Task<ScoresModel.Scores.Root> LoadCapeTownScores()
+            //{
+            //    string capeTownUrl = "https://api.teleport.org/api/urban_areas/slug:cape-town/scores/";
+            //    using (HttpResponseMessage capeTownResponse = await ApiHelper.ApiClient.GetAsync(capeTownUrl))
+            //    {
+            //        if (capeTownResponse.IsSuccessStatusCode)
+            //        {
+            //            var capeTownJsonString = await capeTownResponse.Content.ReadAsStringAsync();
+            //            var capeTownScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(capeTownJsonString);
+            //            return (capeTownScores);
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(capeTownResponse.ReasonPhrase);
+            //        }
+            //    }
+            //}
 
             public static async Task<ScoresModel.Scores.Root> LoadCasablancaScores()
             {
-                string casablancaUrl = "https://api.teleport.org/api/urban_areas/slug:casablanca/scores/";
-                using (HttpResponseMessage casablancaResponse = await ApiHelper.ApiClient.GetAsync(casablancaUrl))
-                {
-                    if (casablancaResponse.IsSuccessStatusCode)
-                    {
-                        var casablancaJsonString = await casablancaResponse.Content.ReadAsStringAsync();
-                        var casablancaScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(casablancaJsonString);
-                        return (casablancaScores);
-                    }
-                    else
-                    {
-                        throw new Exception(casablancaResponse.ReasonPhrase);
-                    }
-                }
+                string casablancaUrl = "https://api.teleport.org/api/urban_areas/slug:cape-town/scores/";
+                return await LoadScores(casablancaUrl);
             }
+
+            //public static async Task<ScoresModel.Scores.Root> LoadCasablancaScores()
+            //{
+            //    string casablancaUrl = "https://api.teleport.org/api/urban_areas/slug:casablanca/scores/";
+            //    using (HttpResponseMessage casablancaResponse = await ApiHelper.ApiClient.GetAsync(casablancaUrl))
+            //    {
+            //        if (casablancaResponse.IsSuccessStatusCode)
+            //        {
+            //            var casablancaJsonString = await casablancaResponse.Content.ReadAsStringAsync();
+            //            var casablancaScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(casablancaJsonString);
+            //            return (casablancaScores);
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(casablancaResponse.ReasonPhrase);
+            //        }
+            //    }
+            //}
 
             public static async Task<ScoresModel.Scores.Root> LoadLagosScores()
             {
                 string lagosUrl = "https://api.teleport.org/api/urban_areas/slug:lagos/scores/";
-                using (HttpResponseMessage lagosResponse = await ApiHelper.ApiClient.GetAsync(lagosUrl))
-                {
-                    if (lagosResponse.IsSuccessStatusCode)
-                    {
-                        var lagosJsonString = await lagosResponse.Content.ReadAsStringAsync();
-                        var lagosScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(lagosJsonString);
-                        return (lagosScores);
-                    }
-                    else
-                    {
-                        throw new Exception(lagosResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(lagosUrl);
             }
+
+            //public static async Task<ScoresModel.Scores.Root> LoadLagosScores()
+            //{
+            //    string lagosUrl = "https://api.teleport.org/api/urban_areas/slug:lagos/scores/";
+            //    using (HttpResponseMessage lagosResponse = await ApiHelper.ApiClient.GetAsync(lagosUrl))
+            //    {
+            //        if (lagosResponse.IsSuccessStatusCode)
+            //        {
+            //            var lagosJsonString = await lagosResponse.Content.ReadAsStringAsync();
+            //            var lagosScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(lagosJsonString);
+            //            return (lagosScores);
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(lagosResponse.ReasonPhrase);
+            //        }
+            //    }
+            //}
 
             public static async Task<ScoresModel.Scores.Root> LoadNairobiScores()
             {
                 string nairobiUrl = "https://api.teleport.org/api/urban_areas/slug:nairobi/scores/";
-                using (HttpResponseMessage nairobiResponse = await ApiHelper.ApiClient.GetAsync(nairobiUrl))
-                {
-                    if (nairobiResponse.IsSuccessStatusCode)
-                    {
-                        var nairobiJsonString = await nairobiResponse.Content.ReadAsStringAsync();
-                        var nairobiScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(nairobiJsonString);
-                        return (nairobiScores);
-                    }
-                    else
-                    {
-                        throw new Exception(nairobiResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(nairobiUrl);
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadScoresByCity(string city)
-            {
-                string cityUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
-                using (HttpResponseMessage cityResponse = await ApiHelper.ApiClient.GetAsync(cityUrl))
-                {
-                    if (cityResponse.IsSuccessStatusCode)
-                    {
-                        var cityJsonString = await cityResponse.Content.ReadAsStringAsync();
-                        var cityScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cityJsonString);
-                        return (cityScores);
-                    }
-                    else
-                    {
-                        throw new Exception(cityResponse.ReasonPhrase);
-                    }
-                }
-            }
-
+            //public static async Task<ScoresModel.Scores.Root> LoadNairobiScores()
+            //{
+            //    string nairobiUrl = "https://api.teleport.org/api/urban_areas/slug:nairobi/scores/";
+            //    using (HttpResponseMessage nairobiResponse = await ApiHelper.ApiClient.GetAsync(nairobiUrl))
+            //    {
+            //        if (nairobiResponse.IsSuccessStatusCode)
+            //        {
+            //            var nairobiJsonString = await nairobiResponse.Content.ReadAsStringAsync();
+            //            var nairobiScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(nairobiJsonString);
+            //            return (nairobiScores);
+            //        }
+            //        else
+            //        {
+            //            throw new Exception(nairobiResponse.ReasonPhrase);
+            //        }
+            //    }
+            //}
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
+                List<UrbanAreasModel.UrbanAreas.UaItem> africaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
+                TeleportViewModel mymodel = new TeleportViewModel();
+
                 var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
                 var AFCities = africaUA._links.uaitems;
-
-                var cairoScore = await ScoresProcessor.Africa.LoadCairoScores();
-                var capeTownScore = await ScoresProcessor.Africa.LoadCapeTownScores();
-                var casablancaScore = await ScoresProcessor.Africa.LoadCasablancaScores();
-                var lagosScore = await ScoresProcessor.Africa.LoadLagosScores();
-                var nairobiScore = await ScoresProcessor.Africa.LoadNairobiScores();
 
                 var cairo = AFCities[0];
                 var capeTown = AFCities[1];
@@ -220,36 +246,24 @@ namespace DemoLibrary2
                 var lagos = AFCities[5];
                 var nairobi = AFCities[6];
 
-                List<ScoresModel.Scores.Root> africaScores = new List<ScoresModel.Scores.Root>();
-
-                africaScores.Add(cairoScore);
-                africaScores.Add(capeTownScore);
-                africaScores.Add(casablancaScore);
-                africaScores.Add(lagosScore);
-                africaScores.Add(nairobiScore);
-
-                List<UrbanAreasModel.UrbanAreas.UaItem> africaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
                 africaCities.Add(cairo);
                 africaCities.Add(capeTown);
                 africaCities.Add(casablanca);
                 africaCities.Add(lagos);
                 africaCities.Add(nairobi);
 
-                TeleportViewModel mymodel = new TeleportViewModel();
-
                 mymodel.AfricaCities = africaCities;
-                mymodel.AfricaScores = africaScores;
+
                 mymodel.Cairo = cairo;
-                mymodel.CairoScore = cairoScore;
+                mymodel.CairoScore = await LoadCairoScores();
                 mymodel.CapeTown = capeTown;
-                mymodel.CapeTownScore = capeTownScore;
+                mymodel.CapeTownScore = await LoadCapeTownScores();
                 mymodel.Casablanca = casablanca;
-                mymodel.CasablancaScore = casablancaScore;
+                mymodel.CasablancaScore = await LoadCasablancaScores();
                 mymodel.Lagos = lagos;
-                mymodel.LagosScore = lagosScore;
+                mymodel.LagosScore = await LoadLagosScores();
                 mymodel.Nairobi = nairobi;
-                mymodel.NairobiScore = nairobiScore;
+                mymodel.NairobiScore = await LoadNairobiScores();
 
                 return (mymodel);
             }
