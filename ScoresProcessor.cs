@@ -69,13 +69,13 @@ namespace DemoLibrary2
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
-                var NACities = northAmericaUA._links.uaitems;
+                var northAmericaCities = northAmericaUA._links.uaitems;
 
-                var boston = NACities[9];
-                var lasVegas = NACities[40];
-                var newYork = NACities[53];
-                var washingtonDC = NACities[85];
-                var miami = NACities[47];
+                var boston = northAmericaCities[9];
+                var lasVegas = northAmericaCities[40];
+                var newYork = northAmericaCities[53];
+                var washingtonDC = northAmericaCities[85];
+                var miami = northAmericaCities[47];
 
                 mymodel.Boston = boston;
                 mymodel.BostonScore = await LoadBostonScores();
