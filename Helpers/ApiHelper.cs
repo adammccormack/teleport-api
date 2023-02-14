@@ -10,7 +10,7 @@ namespace DemoLibrary
 {
     public static class ApiHelper
     {
-        public static HttpClient ApiClient { get; set; }
+        public static HttpClient? ApiClient { get; set; }
 
         public static void InitializeClient()
         {
