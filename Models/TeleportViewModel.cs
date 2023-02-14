@@ -28,29 +28,29 @@ namespace DemoLibrary2.Models
 
         public UrbanAreasModel.UrbanAreas.UaItem? Cairo { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? CapeTown { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Casablanca { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Lagos { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Johannesburg { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Tunis { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Nairobi { get; set; }
 
         public ScoresModel.Scores.Root? CairoScore { get; set; }
         public ScoresModel.Scores.Root? CapeTownScore { get; set; }
-        public ScoresModel.Scores.Root? CasablancaScore { get; set; }
-        public ScoresModel.Scores.Root? LagosScore { get; set; }
+        public ScoresModel.Scores.Root? JohannesburgScore { get; set; }
+        public ScoresModel.Scores.Root? TunisScore { get; set; }
         public ScoresModel.Scores.Root? NairobiScore { get; set; }
 
         //Asia
         public List<UrbanAreasModel.UrbanAreas.UaItem>? AsiaCities { get; set; }
         public List<ScoresModel.Scores.Root>? AsiaScores { get; set; }
 
-        public UrbanAreasModel.UrbanAreas.UaItem? Doha { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Manila { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Taipei { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Singapore { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Seoul { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Osaka { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? HongKong { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Tokyo { get; set; }
 
-        public ScoresModel.Scores.Root? DohaScore { get; set; }
-        public ScoresModel.Scores.Root? ManilaScore { get; set; }
-        public ScoresModel.Scores.Root? TaipeiScore { get; set; }
+        public ScoresModel.Scores.Root? SingaporeScore { get; set; }
+        public ScoresModel.Scores.Root? SeoulScore { get; set; }
+        public ScoresModel.Scores.Root? OsakaScore { get; set; }
         public ScoresModel.Scores.Root? HongKongScore { get; set; }
         public ScoresModel.Scores.Root? TokyoScore { get; set; }
 
