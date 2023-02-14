@@ -18,118 +18,52 @@ namespace DemoLibrary2
     {
         public class NorthAmerica
         {
-            public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
+            public static async Task<ScoresModel.Scores.Root> LoadScores(string url)
             {
-                string bostonUrl = "https://api.teleport.org/api/urban_areas/slug:boston/scores/";
-                using (HttpResponseMessage bostonResponse = await ApiHelper.ApiClient.GetAsync(bostonUrl))
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
                 {
-                    if (bostonResponse.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
-                        var bostonJsonString = await bostonResponse.Content.ReadAsStringAsync();
-                        var bostonScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(bostonJsonString);
-                        return (bostonScores);
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var scores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                        return scores;
                     }
                     else
                     {
-                        throw new Exception(bostonResponse.ReasonPhrase);
+                        throw new Exception(response.ReasonPhrase);
                     }
                 }
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
+            {
+                string bostonUrl = "https://api.teleport.org/api/urban_areas/slug:boston/scores/";
+                return await LoadScores(bostonUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadLasVegasScores()
             {
                 string lasVegasUrl = "https://api.teleport.org/api/urban_areas/slug:las-vegas/scores/";
-                using (HttpResponseMessage lasVegasResponse = await ApiHelper.ApiClient.GetAsync(lasVegasUrl))
-                {
-                    if (lasVegasResponse.IsSuccessStatusCode)
-                    {
-                        var lasVegasJsonString = await lasVegasResponse.Content.ReadAsStringAsync();
-                        var lasVegasScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(lasVegasJsonString);
-                        return (lasVegasScores);
-                    }
-                    else
-                    {
-                        throw new Exception(lasVegasResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(lasVegasUrl);
             }
+
             public static async Task<ScoresModel.Scores.Root> LoadNewYorkScores()
             {
                 string newYorkUrl = "https://api.teleport.org/api/urban_areas/slug:new-york/scores/";
-
-                using (HttpResponseMessage newYorkResponse = await ApiHelper.ApiClient.GetAsync(newYorkUrl))
-
-                {
-                    if (newYorkResponse.IsSuccessStatusCode)
-
-                    {
-                        var newYorkJsonString = await newYorkResponse.Content.ReadAsStringAsync();
-                        var newYorkScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(newYorkJsonString);
-                        return (newYorkScores);
-                    }
-                    else
-                    {
-                        throw new Exception(newYorkResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(newYorkUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadWashingtonDCScores()
             {
                 string washingtonDCUrl = "https://api.teleport.org/api/urban_areas/slug:washington-dc/scores/";
-
-                using (HttpResponseMessage washingtonDCResponse = await ApiHelper.ApiClient.GetAsync(washingtonDCUrl))
-                {
-                    if (
-                        washingtonDCResponse.IsSuccessStatusCode)
-                    {
-                        var washingtonDCJsonString = await washingtonDCResponse.Content.ReadAsStringAsync();
-                        var washingtonDCScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(washingtonDCJsonString);
-                        return (washingtonDCScores);
-                    }
-                    else
-                    {
-                        throw new Exception(washingtonDCResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(washingtonDCUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMiamiScores()
             {
                 string miamiUrl = "https://api.teleport.org/api/urban_areas/slug:miami/scores/";
-                using (HttpResponseMessage miamiResponse = await ApiHelper.ApiClient.GetAsync(miamiUrl))
-                {
-                    if (miamiResponse.IsSuccessStatusCode)
-                    {
-                        var miamiJsonString = await miamiResponse.Content.ReadAsStringAsync();
-                        var miamiScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(miamiJsonString);
-                        return (miamiScores);
-                    }
-                    else
-                    {
-                        throw new Exception(miamiResponse.ReasonPhrase);
-                    }
-                }
+                return await LoadScores(miamiUrl);
             }
-
-            public static async Task<ScoresModel.Scores.Root> LoadScoresByCity(string city)
-            {
-                string cityUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
-                using (HttpResponseMessage cityResponse = await ApiHelper.ApiClient.GetAsync(cityUrl))
-                {
-                    if (cityResponse.IsSuccessStatusCode)
-                    {
-                        var cityJsonString = await cityResponse.Content.ReadAsStringAsync();
-                        var cityScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cityJsonString);
-                        return (cityScores);
-                    }
-                    else
-                    {
-                        throw new Exception(cityResponse.ReasonPhrase);
-                    }
-                }
-            }
-
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
@@ -137,25 +71,11 @@ namespace DemoLibrary2
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var NACities = northAmericaUA._links.uaitems;
 
-                var bostonScore = await ScoresProcessor.NorthAmerica.LoadBostonScores();
-                var lasVegasScore = await ScoresProcessor.NorthAmerica.LoadLasVegasScores();
-                var newYorkScore = await ScoresProcessor.NorthAmerica.LoadNewYorkScores();
-                var washingtonDCScore = await ScoresProcessor.NorthAmerica.LoadWashingtonDCScores();
-                var miamiScore = await ScoresProcessor.NorthAmerica.LoadMiamiScores();
-
                 var boston = NACities[9];
                 var lasVegas = NACities[40];
                 var newYork = NACities[53];
                 var washingtonDC = NACities[85];
                 var miami = NACities[47];
-
-                List<ScoresModel.Scores.Root> northAmericascores = new List<ScoresModel.Scores.Root>();
-
-                northAmericascores.Add(bostonScore);
-                northAmericascores.Add(lasVegasScore);
-                northAmericascores.Add(newYorkScore);
-                northAmericascores.Add(washingtonDCScore);
-                northAmericascores.Add(miamiScore);
 
                 List<UrbanAreasModel.UrbanAreas.UaItem> northAmericaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
 
@@ -167,41 +87,24 @@ namespace DemoLibrary2
 
                 TeleportViewModel mymodel = new TeleportViewModel();
 
-                mymodel.NorthAmericaCities = northAmericaCities;
-                mymodel.NorthAmericaScores = northAmericascores;
-                //mymodel.CityScores = cityScores;
-                //mymodel.Boston = boston;
-                //mymodel.BostonScore = bostonScore;
-                //mymodel.LasVegas = lasVegas;
-                //mymodel.LasVegasScore = lasVegasScore;
-                //mymodel.NewYork = newYork;
-                //mymodel.NewYorkScore = newYorkScore;
-                //mymodel.WashingtonDC = washingtonDC;
-                //mymodel.WashingtonDCScore = washingtonDCScore;
-                //mymodel.Miami = miami;
-                //mymodel.MiamiScore = miamiScore;
+                //mymodel.NorthAmericaCities = northAmericaCities;
+
+                mymodel.Boston = boston;
+                mymodel.BostonScore = await LoadBostonScores();
+                mymodel.LasVegas = lasVegas;
+                mymodel.LasVegasScore = await LoadLasVegasScores();
+                mymodel.NewYork = newYork;
+                mymodel.NewYorkScore = await LoadNewYorkScores();
+                mymodel.WashingtonDC = washingtonDC;
+                mymodel.WashingtonDCScore = await LoadWashingtonDCScores();
+                mymodel.Miami = miami;
+                mymodel.MiamiScore = await LoadMiamiScores();
 
                 return (mymodel);
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadScores()
-            {
-                string[] cities = new string[] { "boston", "las-vegas", "new-york", "washington-dc", "miami" };
+            
 
-                foreach (string city in cities)
-                {
-                    try
-                    {
-                        var cityScores = await LoadScoresByCity(city);
-                        return cityScores;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error while loading scores for city {city}: {ex.Message}");
-                    }   
-                }
-                return null;
-            }
 
         }
 
