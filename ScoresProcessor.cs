@@ -181,17 +181,17 @@ namespace DemoLibrary2
 
                 mymodel.NorthAmericaCities = northAmericaCities;
                 mymodel.NorthAmericaScores = northAmericascores;
-                mymodel.CityScores = cityScores;
-                mymodel.Boston = boston;
-                mymodel.BostonScore = bostonScore;
-                mymodel.LasVegas = lasVegas;
-                mymodel.LasVegasScore = lasVegasScore;
-                mymodel.NewYork = newYork;
-                mymodel.NewYorkScore = newYorkScore;
-                mymodel.WashingtonDC = washingtonDC;
-                mymodel.WashingtonDCScore = washingtonDCScore;
-                mymodel.Miami = miami;
-                mymodel.MiamiScore = miamiScore;
+                //mymodel.CityScores = cityScores;
+                //mymodel.Boston = boston;
+                //mymodel.BostonScore = bostonScore;
+                //mymodel.LasVegas = lasVegas;
+                //mymodel.LasVegasScore = lasVegasScore;
+                //mymodel.NewYork = newYork;
+                //mymodel.NewYorkScore = newYorkScore;
+                //mymodel.WashingtonDC = washingtonDC;
+                //mymodel.WashingtonDCScore = washingtonDCScore;
+                //mymodel.Miami = miami;
+                //mymodel.MiamiScore = miamiScore;
 
                 return (mymodel);
             }
