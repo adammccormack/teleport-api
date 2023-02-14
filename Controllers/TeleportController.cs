@@ -39,26 +39,19 @@ namespace DemoLibrary2.Controllers
             {
                 case "North America":
                     return RedirectToAction("NorthAmericaTable");
-                    break;
                 case "South America":
                     return RedirectToAction("SouthAmericaTable");
-                    break;
                 case "Africa":
                     return RedirectToAction("AfricaTable");
-                    break;
                 case "Asia":
                     return RedirectToAction("AsiaTable");
-                    break;
                 case "Oceania":
                     return RedirectToAction("OceaniaTable");
-                    break;
                 case "Europe":
                     return RedirectToAction("EuropeTable");
-                    break;
                 case "Antarctica":
                     TempData["AlertMessage"] = "Sorry no urban areas for this continent : (";
                     return RedirectToAction("Index");
-                    break;
             }
             return RedirectToAction("Index");
         }
