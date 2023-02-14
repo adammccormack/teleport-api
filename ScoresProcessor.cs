@@ -324,6 +324,8 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
+                TeleportViewModel mymodel = new TeleportViewModel();
+
                 var oceaniaUA = await UrbanAreasProcessor.LoadOceaniaUrbanAreas();
                 var OCCities = oceaniaUA._links.uaitems;
 
@@ -332,8 +334,6 @@ namespace DemoLibrary2
                 var christChurch = OCCities[3];
                 var melbourne = OCCities[4];
                 var brisbane = OCCities[2];
-
-                TeleportViewModel mymodel = new TeleportViewModel();
 
                 mymodel.Wellington = wellington;
                 mymodel.WellingtonScore = await LoadWellingtonScores();
@@ -354,104 +354,40 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadAarhusScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:aarhus/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string aarhusUrl = "https://api.teleport.org/api/urban_areas/slug:aarhus/scores/";
+                return await LoadScores(aarhusUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadChisinauScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:chisinau/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string chisinauUrl = "https://api.teleport.org/api/urban_areas/slug:chisinau/scores/";
+                return await LoadScores(chisinauUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadLilleScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:lille/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string lilleUrl = "https://api.teleport.org/api/urban_areas/slug:lille/scores/";
+                return await LoadScores(lilleUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadNaplesScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:naples/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string naplesUrl = "https://api.teleport.org/api/urban_areas/slug:naples/scores/";
+                return await LoadScores(naplesUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadVilniusScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:vilnius/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string vilniusUrl = "https://api.teleport.org/api/urban_areas/slug:vilnius/scores/";
+                return await LoadScores(vilniusUrl);
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
+                TeleportViewModel mymodel = new TeleportViewModel();
+
                 var europeUA = await UrbanAreasProcessor.LoadEuropeUrbanAreas();
                 var EUCities = europeUA._links.uaitems;
-
-                var aarhusScore = await ScoresProcessor.Europe.LoadAarhusScores();
-                var chisinauScore = await ScoresProcessor.Europe.LoadChisinauScores();
-                var lilleScore = await ScoresProcessor.Europe.LoadLilleScores();
-                var naplesScore = await ScoresProcessor.Europe.LoadNaplesScores();
-                var vilniusScore = await ScoresProcessor.Europe.LoadVilniusScores();
 
                 var aarhus = EUCities[0];
                 var chisinau = EUCities[23];
@@ -459,36 +395,16 @@ namespace DemoLibrary2
                 var naples = EUCities[71];
                 var vilnius = EUCities[106];
 
-                List<ScoresModel.Scores.Root> europeScores = new List<ScoresModel.Scores.Root>();
-
-                europeScores.Add(aarhusScore);
-                europeScores.Add(chisinauScore);
-                europeScores.Add(lilleScore);
-                europeScores.Add(naplesScore);
-                europeScores.Add(vilniusScore);
-
-                List<UrbanAreasModel.UrbanAreas.UaItem> europeCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
-                europeCities.Add(aarhus);
-                europeCities.Add(chisinau);
-                europeCities.Add(lille);
-                europeCities.Add(naples);
-                europeCities.Add(vilnius);
-
-                TeleportViewModel mymodel = new TeleportViewModel();
-
-                mymodel.EuropeCities = europeCities;
-                mymodel.EuropeScores = europeScores;
                 mymodel.Aarhus = aarhus;
-                mymodel.AarhusScore = aarhusScore;
+                mymodel.AarhusScore = await LoadAarhusScores();
                 mymodel.Chisinau = chisinau;
-                mymodel.ChisinauScore = chisinauScore;
+                mymodel.ChisinauScore = await LoadChisinauScores();
                 mymodel.Lille = lille;
-                mymodel.LilleScore = lilleScore;
+                mymodel.LilleScore = await LoadLilleScores();
                 mymodel.Naples = naples;
-                mymodel.NaplesScore = naplesScore;
+                mymodel.NaplesScore = await LoadNaplesScores();
                 mymodel.Vilnius = vilnius;
-                mymodel.VilniusScore = vilniusScore;
+                mymodel.VilniusScore = await LoadVilniusScores();
 
                 return (mymodel);
             }
