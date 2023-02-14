@@ -16,25 +16,25 @@ namespace DemoLibrary2
 {
     public class ScoresProcessor
     {
-        public class NorthAmerica
+        public static async Task<ScoresModel.Scores.Root> LoadScores(string url)
         {
-            public static async Task<ScoresModel.Scores.Root> LoadScores(string url)
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+                if (response.IsSuccessStatusCode)
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var scores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return scores;
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    var scores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
+                    return scores;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
                 }
             }
+        }
 
+        public class NorthAmerica
+        {
             public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
             {
                 string bostonUrl = "https://api.teleport.org/api/urban_areas/slug:boston/scores/";
@@ -67,7 +67,7 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-
+                TeleportViewModel mymodel = new TeleportViewModel();
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var NACities = northAmericaUA._links.uaitems;
 
@@ -76,18 +76,6 @@ namespace DemoLibrary2
                 var newYork = NACities[53];
                 var washingtonDC = NACities[85];
                 var miami = NACities[47];
-
-                List<UrbanAreasModel.UrbanAreas.UaItem> northAmericaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
-                northAmericaCities.Add(boston);
-                northAmericaCities.Add(lasVegas);
-                northAmericaCities.Add(newYork);
-                northAmericaCities.Add(washingtonDC);
-                northAmericaCities.Add(miami);
-
-                TeleportViewModel mymodel = new TeleportViewModel();
-
-                //mymodel.NorthAmericaCities = northAmericaCities;
 
                 mymodel.Boston = boston;
                 mymodel.BostonScore = await LoadBostonScores();
@@ -102,10 +90,6 @@ namespace DemoLibrary2
 
                 return (mymodel);
             }
-
-            
-
-
         }
 
         public class Africa
