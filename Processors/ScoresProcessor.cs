@@ -33,54 +33,38 @@ namespace DemoLibrary2
             }
         }
 
-        public static async Task<ScoresModel.Scores.Root> LoadScoresByCity(string city)
+        public static async Task<ScoresModel.Scores.Root> LoadUrbanAreaScores(string city)
         {
-            string cityUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
-            using (HttpResponseMessage cityResponse = await ApiHelper.ApiClient.GetAsync(cityUrl))
-            {
-                if (cityResponse.IsSuccessStatusCode)
-                {
-                    var cityJsonString = await cityResponse.Content.ReadAsStringAsync();
-                    var cityScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cityJsonString);
-                    return (cityScores);
-                }
-                else
-                {
-                    throw new Exception(cityResponse.ReasonPhrase);
-                }
-            }
+            string apiUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
+            return await LoadScores(apiUrl);
         }
 
         public class NorthAmerica
         {
+            
             public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
             {
-                string bostonUrl = "https://api.teleport.org/api/urban_areas/slug:boston/scores/";
-                return await LoadScores(bostonUrl);
+                return await LoadUrbanAreaScores("boston");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadLasVegasScores()
             {
-                string lasVegasUrl = "https://api.teleport.org/api/urban_areas/slug:las-vegas/scores/";
-                return await LoadScores(lasVegasUrl);
+                return await LoadUrbanAreaScores("las-vegas");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadNewYorkScores()
             {
-                string newYorkUrl = "https://api.teleport.org/api/urban_areas/slug:new-york/scores/";
-                return await LoadScores(newYorkUrl);
+                return await LoadUrbanAreaScores("new-york");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadWashingtonDCScores()
             {
-                string washingtonDCUrl = "https://api.teleport.org/api/urban_areas/slug:washington-dc/scores/";
-                return await LoadScores(washingtonDCUrl);
+                return await LoadUrbanAreaScores("washington-dc");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMiamiScores()
             {
-                string miamiUrl = "https://api.teleport.org/api/urban_areas/slug:miami/scores/";
-                return await LoadScores(miamiUrl);
+                return await LoadUrbanAreaScores("miami");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -89,21 +73,16 @@ namespace DemoLibrary2
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var northAmericaCities = northAmericaUA._links.uaitems;
 
-                var boston = northAmericaCities[9];
-                var lasVegas = northAmericaCities[40];
-                var newYork = northAmericaCities[53];
-                var washingtonDC = northAmericaCities[85];
-                var miami = northAmericaCities[47];
+                mymodel.Boston = northAmericaCities[9];
+                mymodel.LasVegas = northAmericaCities[40];
+                mymodel.NewYork = northAmericaCities[53];
+                mymodel.WashingtonDC = northAmericaCities[85];
+                mymodel.Miami = northAmericaCities[47];
 
-                mymodel.Boston = boston;
                 mymodel.BostonScore = await LoadBostonScores();
-                mymodel.LasVegas = lasVegas;
                 mymodel.LasVegasScore = await LoadLasVegasScores();
-                mymodel.NewYork = newYork;
                 mymodel.NewYorkScore = await LoadNewYorkScores();
-                mymodel.WashingtonDC = washingtonDC;
                 mymodel.WashingtonDCScore = await LoadWashingtonDCScores();
-                mymodel.Miami = miami;
                 mymodel.MiamiScore = await LoadMiamiScores();
 
                 return (mymodel);
@@ -114,32 +93,27 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadCairoScores()
             {
-                string cairoUrl = "https://api.teleport.org/api/urban_areas/slug:cairo/scores/";
-                return await LoadScores(cairoUrl);
+                return await LoadUrbanAreaScores("cairo");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadCapeTownScores()
             {
-                string capeTownUrl = "https://api.teleport.org/api/urban_areas/slug:cape-town/scores/";
-                return await LoadScores(capeTownUrl);
+                return await LoadUrbanAreaScores("cape-town");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadCasablancaScores()
             {
-                string casablancaUrl = "https://api.teleport.org/api/urban_areas/slug:cape-town/scores/";
-                return await LoadScores(casablancaUrl);
+                return await LoadUrbanAreaScores("casablanca");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadLagosScores()
             {
-                string lagosUrl = "https://api.teleport.org/api/urban_areas/slug:lagos/scores/";
-                return await LoadScores(lagosUrl);
+                return await LoadUrbanAreaScores("lagos");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadNairobiScores()
             {
-                string nairobiUrl = "https://api.teleport.org/api/urban_areas/slug:nairobi/scores/";
-                return await LoadScores(nairobiUrl);
+                return await LoadUrbanAreaScores("nairobi");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -149,21 +123,15 @@ namespace DemoLibrary2
                 var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
                 var africaCities = africaUA._links.uaitems;
 
-                var cairo = africaCities[0];
-                var capeTown = africaCities[1];
-                var casablanca = africaCities[2];
-                var lagos = africaCities[5];
-                var nairobi = africaCities[6];
-
-                mymodel.Cairo = cairo;
+                mymodel.Cairo = africaCities[0];
                 mymodel.CairoScore = await LoadCairoScores();
-                mymodel.CapeTown = capeTown;
+                mymodel.CapeTown = africaCities[1];
                 mymodel.CapeTownScore = await LoadCapeTownScores();
-                mymodel.Casablanca = casablanca;
+                mymodel.Casablanca = africaCities[2];
                 mymodel.CasablancaScore = await LoadCasablancaScores();
-                mymodel.Lagos = lagos;
+                mymodel.Lagos = africaCities[5];
                 mymodel.LagosScore = await LoadLagosScores();
-                mymodel.Nairobi = nairobi;
+                mymodel.Nairobi = africaCities[6];
                 mymodel.NairobiScore = await LoadNairobiScores();
 
                 return (mymodel);
@@ -174,32 +142,27 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadDohaScores()
             {
-                string dohaUrl = "https://api.teleport.org/api/urban_areas/slug:doha/scores/";
-                return await LoadScores(dohaUrl);
+                return await LoadUrbanAreaScores("doha");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadManilaScores()
             {
-                string manilaUrl = "https://api.teleport.org/api/urban_areas/slug:manila/scores/";
-                return await LoadScores(manilaUrl);
+                return await LoadUrbanAreaScores("manila");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadTaipeiScores()
             {
-                string taipeiUrl = "https://api.teleport.org/api/urban_areas/slug:taipei/scores/";
-                return await LoadScores(taipeiUrl);
+                return await LoadUrbanAreaScores("taipei");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadHongKongScores()
             {
-                string hongKongUrl = "https://api.teleport.org/api/urban_areas/slug:hong-kong/scores/";
-                return await LoadScores(hongKongUrl);
+                return await LoadUrbanAreaScores("hong-kong");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadTokyoScores()
             {
-                string tokyoUrl = "https://api.teleport.org/api/urban_areas/slug:tokyo/scores/";
-                return await LoadScores(tokyoUrl);
+                return await LoadUrbanAreaScores("tokyo");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -209,21 +172,15 @@ namespace DemoLibrary2
                 var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
                 var asiaCities = asiaUA._links.uaitems;
 
-                var doha = asiaCities[11];
-                var manila = asiaCities[22];
-                var taipei = asiaCities[31];
-                var hongKong = asiaCities[15];
-                var tokyo = asiaCities[35];
-
-                mymodel.Doha = doha;
+                mymodel.Doha = asiaCities[11];
                 mymodel.DohaScore = await LoadDohaScores();
-                mymodel.Manila = manila;
+                mymodel.Manila = asiaCities[22];
                 mymodel.ManilaScore = await LoadManilaScores();
-                mymodel.Taipei = taipei;
+                mymodel.Taipei = asiaCities[31];
                 mymodel.TaipeiScore = await LoadTaipeiScores();
-                mymodel.HongKong = hongKong;
+                mymodel.HongKong = asiaCities[15];
                 mymodel.HongKongScore = await LoadHongKongScores();
-                mymodel.Tokyo = tokyo;
+                mymodel.Tokyo = asiaCities[35];
                 mymodel.TokyoScore = await LoadTokyoScores();
 
                 return (mymodel);
@@ -234,32 +191,27 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadBogotaScores()
             {
-                string bogotaUrl = "https://api.teleport.org/api/urban_areas/slug:bogota/scores/";
-                return await LoadScores(bogotaUrl);
+                return await LoadUrbanAreaScores("bogota");
             }
-            
+
             public static async Task<ScoresModel.Scores.Root> LoadCaracasScores()
             {
-                string caracasUrl = "https://api.teleport.org/api/urban_areas/slug:caracas/scores/";
-                return await LoadScores(caracasUrl);
+                return await LoadUrbanAreaScores("caracas");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMedellinScores()
             {
-                string medellinUrl = "https://api.teleport.org/api/urban_areas/slug:medellin/scores/";
-                return await LoadScores(medellinUrl);
+                return await LoadUrbanAreaScores("medellin");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadSaoPauloScores()
             {
-                string saoPauloUrl = "https://api.teleport.org/api/urban_areas/slug:sao-paulo/scores/";
-                return await LoadScores(saoPauloUrl);
+                return await LoadUrbanAreaScores("sao-paulo");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadPortoAlegreScores()
             {
-                string portoAlegreUrl = "https://api.teleport.org/api/urban_areas/slug:porto-alegre/scores/";
-                return await LoadScores(portoAlegreUrl);
+                return await LoadUrbanAreaScores("porto-alegre");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -269,21 +221,15 @@ namespace DemoLibrary2
                 var southAmericaUA = await UrbanAreasProcessor.LoadSouthAmericaUrbanAreas();
                 var SACities = southAmericaUA._links.uaitems;
 
-                var bogota = SACities[1];
-                var caracas = SACities[3];
-                var medellin = SACities[8];
-                var saoPaulo = SACities[14];
-                var portoAlegre = SACities[10];
-
-                mymodel.Bogota = bogota;
+                mymodel.Bogota = SACities[1];
                 mymodel.BogotaScore = await LoadBogotaScores();
-                mymodel.Caracas = caracas;
+                mymodel.Caracas = SACities[3];
                 mymodel.CaracasScore = await LoadCaracasScores();
-                mymodel.Medellin = medellin;
+                mymodel.Medellin = SACities[8];
                 mymodel.MedellinScore = await LoadMedellinScores();
-                mymodel.SaoPaulo = saoPaulo;
+                mymodel.SaoPaulo = SACities[14];
                 mymodel.SaoPauloScore = await LoadSaoPauloScores();
-                mymodel.PortoAlegre = portoAlegre;
+                mymodel.PortoAlegre = SACities[10];
                 mymodel.PortoAlegreScore = await LoadPortoAlegreScores();
 
                 return (mymodel);
@@ -294,32 +240,27 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadWellingtonScores()
             {
-                string wellingtonUrl = "https://api.teleport.org/api/urban_areas/slug:wellington/scores/";
-                return await LoadScores(wellingtonUrl);
+                return await LoadUrbanAreaScores("wellington");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadAdelaideScores()
             {
-                string adelaideUrl = "https://api.teleport.org/api/urban_areas/slug:adelaide/scores/";
-                return await LoadScores(adelaideUrl);
+                return await LoadUrbanAreaScores("adelaide");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadChristChurchScores()
             {
-                string christChurchUrl = "https://api.teleport.org/api/urban_areas/slug:christchurch/scores/";
-                return await LoadScores(christChurchUrl);
+                return await LoadUrbanAreaScores("christchurch");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMelbourneScores()
             {
-                string melbourneUrl = "https://api.teleport.org/api/urban_areas/slug:melbourne/scores/";
-                return await LoadScores(melbourneUrl);
+                return await LoadUrbanAreaScores("melbourne");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadBrisbaneScores()
             {
-                string brisbaneUrl = "https://api.teleport.org/api/urban_areas/slug:brisbane/scores/";
-                return await LoadScores(brisbaneUrl);
+                return await LoadUrbanAreaScores("brisbane");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -327,23 +268,17 @@ namespace DemoLibrary2
                 TeleportViewModel mymodel = new TeleportViewModel();
 
                 var oceaniaUA = await UrbanAreasProcessor.LoadOceaniaUrbanAreas();
-                var OCCities = oceaniaUA._links.uaitems;
+                var oceaniaCities = oceaniaUA._links.uaitems;
 
-                var wellington = OCCities[7];
-                var adelaide = OCCities[0];
-                var christChurch = OCCities[3];
-                var melbourne = OCCities[4];
-                var brisbane = OCCities[2];
-
-                mymodel.Wellington = wellington;
+                mymodel.Wellington = oceaniaCities[7];
                 mymodel.WellingtonScore = await LoadWellingtonScores();
-                mymodel.Adelaide = adelaide;
+                mymodel.Adelaide = oceaniaCities[0];
                 mymodel.AdelaideScore = await LoadAdelaideScores();
-                mymodel.ChristChurch = christChurch;
+                mymodel.ChristChurch = oceaniaCities[3];
                 mymodel.ChristChurchScore = await LoadChristChurchScores();
-                mymodel.Melbourne = melbourne;
+                mymodel.Melbourne = oceaniaCities[4];
                 mymodel.MelbourneScore = await LoadMelbourneScores();
-                mymodel.Brisbane = brisbane;
+                mymodel.Brisbane = oceaniaCities[2];
                 mymodel.BrisbaneScore = await LoadBrisbaneScores();
 
                 return (mymodel);
@@ -354,32 +289,27 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadAarhusScores()
             {
-                string aarhusUrl = "https://api.teleport.org/api/urban_areas/slug:aarhus/scores/";
-                return await LoadScores(aarhusUrl);
+                return await LoadUrbanAreaScores("aarhus");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadChisinauScores()
             {
-                string chisinauUrl = "https://api.teleport.org/api/urban_areas/slug:chisinau/scores/";
-                return await LoadScores(chisinauUrl);
+                return await LoadUrbanAreaScores("chisinau");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadLilleScores()
             {
-                string lilleUrl = "https://api.teleport.org/api/urban_areas/slug:lille/scores/";
-                return await LoadScores(lilleUrl);
+                return await LoadUrbanAreaScores("lille");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadNaplesScores()
             {
-                string naplesUrl = "https://api.teleport.org/api/urban_areas/slug:naples/scores/";
-                return await LoadScores(naplesUrl);
+                return await LoadUrbanAreaScores("naples");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadVilniusScores()
             {
-                string vilniusUrl = "https://api.teleport.org/api/urban_areas/slug:vilnius/scores/";
-                return await LoadScores(vilniusUrl);
+                return await LoadUrbanAreaScores("vilnius");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -387,28 +317,21 @@ namespace DemoLibrary2
                 TeleportViewModel mymodel = new TeleportViewModel();
 
                 var europeUA = await UrbanAreasProcessor.LoadEuropeUrbanAreas();
-                var EUCities = europeUA._links.uaitems;
+                var europeanCities = europeUA._links.uaitems;
 
-                var aarhus = EUCities[0];
-                var chisinau = EUCities[23];
-                var lille = EUCities[53];
-                var naples = EUCities[71];
-                var vilnius = EUCities[106];
-
-                mymodel.Aarhus = aarhus;
+                mymodel.Aarhus = europeanCities[0];
                 mymodel.AarhusScore = await LoadAarhusScores();
-                mymodel.Chisinau = chisinau;
+                mymodel.Chisinau = europeanCities[23];
                 mymodel.ChisinauScore = await LoadChisinauScores();
-                mymodel.Lille = lille;
+                mymodel.Lille = europeanCities[53];
                 mymodel.LilleScore = await LoadLilleScores();
-                mymodel.Naples = naples;
+                mymodel.Naples = europeanCities[71];
                 mymodel.NaplesScore = await LoadNaplesScores();
-                mymodel.Vilnius = vilnius;
+                mymodel.Vilnius = europeanCities[106];
                 mymodel.VilniusScore = await LoadVilniusScores();
 
                 return (mymodel);
             }
-
         }
     }
 }
