@@ -32,55 +32,38 @@ namespace DemoLibrary2
                 }
             }
         }
-
-        public static async Task<ScoresModel.Scores.Root> LoadScoresByCity(string city)
-        {
-            string cityUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
-            using (HttpResponseMessage cityResponse = await ApiHelper.ApiClient.GetAsync(cityUrl))
-            {
-                if (cityResponse.IsSuccessStatusCode)
-                {
-                    var cityJsonString = await cityResponse.Content.ReadAsStringAsync();
-                    var cityScores = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(cityJsonString);
-                    return (cityScores);
-                }
-                else
-                {
-                    throw new Exception(cityResponse.ReasonPhrase);
-                }
-            }
-        }
-
+        
         public class NorthAmerica
         {
+            public static async Task<ScoresModel.Scores.Root> LoadUrbanAreaScores(string slug)
+            {
+                string apiUrl = $"https://api.teleport.org/api/urban_areas/slug:{slug}/scores/";
+                return await LoadScores(apiUrl);
+            }
+
             public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
             {
-                string bostonUrl = "https://api.teleport.org/api/urban_areas/slug:boston/scores/";
-                return await LoadScores(bostonUrl);
+                return await LoadUrbanAreaScores("boston");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadLasVegasScores()
             {
-                string lasVegasUrl = "https://api.teleport.org/api/urban_areas/slug:las-vegas/scores/";
-                return await LoadScores(lasVegasUrl);
+                return await LoadUrbanAreaScores("las-vegas");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadNewYorkScores()
             {
-                string newYorkUrl = "https://api.teleport.org/api/urban_areas/slug:new-york/scores/";
-                return await LoadScores(newYorkUrl);
+                return await LoadUrbanAreaScores("new-york");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadWashingtonDCScores()
             {
-                string washingtonDCUrl = "https://api.teleport.org/api/urban_areas/slug:washington-dc/scores/";
-                return await LoadScores(washingtonDCUrl);
+                return await LoadUrbanAreaScores("washington-dc");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMiamiScores()
             {
-                string miamiUrl = "https://api.teleport.org/api/urban_areas/slug:miami/scores/";
-                return await LoadScores(miamiUrl);
+                return await LoadUrbanAreaScores("miami");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -89,21 +72,16 @@ namespace DemoLibrary2
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var northAmericaCities = northAmericaUA._links.uaitems;
 
-                var boston = northAmericaCities[9];
-                var lasVegas = northAmericaCities[40];
-                var newYork = northAmericaCities[53];
-                var washingtonDC = northAmericaCities[85];
-                var miami = northAmericaCities[47];
+                mymodel.Boston = northAmericaCities[9];
+                mymodel.LasVegas = northAmericaCities[40];
+                mymodel.NewYork = northAmericaCities[53];
+                mymodel.WashingtonDC = northAmericaCities[85];
+                mymodel.Miami = northAmericaCities[47];
 
-                mymodel.Boston = boston;
                 mymodel.BostonScore = await LoadBostonScores();
-                mymodel.LasVegas = lasVegas;
                 mymodel.LasVegasScore = await LoadLasVegasScores();
-                mymodel.NewYork = newYork;
                 mymodel.NewYorkScore = await LoadNewYorkScores();
-                mymodel.WashingtonDC = washingtonDC;
                 mymodel.WashingtonDCScore = await LoadWashingtonDCScores();
-                mymodel.Miami = miami;
                 mymodel.MiamiScore = await LoadMiamiScores();
 
                 return (mymodel);
