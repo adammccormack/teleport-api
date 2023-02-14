@@ -234,104 +234,40 @@ namespace DemoLibrary2
         {
             public static async Task<ScoresModel.Scores.Root> LoadBogotaScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:bogota/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string bogotaUrl = "https://api.teleport.org/api/urban_areas/slug:bogota/scores/";
+                return await LoadScores(bogotaUrl);
             }
-
+            
             public static async Task<ScoresModel.Scores.Root> LoadCaracasScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:caracas/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string caracasUrl = "https://api.teleport.org/api/urban_areas/slug:caracas/scores/";
+                return await LoadScores(caracasUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMedellinScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:medellin/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string medellinUrl = "https://api.teleport.org/api/urban_areas/slug:medellin/scores/";
+                return await LoadScores(medellinUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadSaoPauloScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:sao-paulo/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string saoPauloUrl = "https://api.teleport.org/api/urban_areas/slug:sao-paulo/scores/";
+                return await LoadScores(saoPauloUrl);
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadPortoAlegreScores()
             {
-                string url = "https://api.teleport.org/api/urban_areas/slug:porto-alegre/scores/";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var score = JsonConvert.DeserializeObject<ScoresModel.Scores.Root>(jsonString);
-                        return (score);
-                    }
-                    else
-                    {
-                        throw new Exception(response.ReasonPhrase);
-                    }
-                }
+                string portoAlegreUrl = "https://api.teleport.org/api/urban_areas/slug:porto-alegre/scores/";
+                return await LoadScores(portoAlegreUrl);
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
+                TeleportViewModel mymodel = new TeleportViewModel();
+
                 var southAmericaUA = await UrbanAreasProcessor.LoadSouthAmericaUrbanAreas();
                 var SACities = southAmericaUA._links.uaitems;
-
-                var bogotaScore = await ScoresProcessor.SouthAmerica.LoadBogotaScores();
-                var caracasScore = await ScoresProcessor.SouthAmerica.LoadCaracasScores();
-                var medellinScore = await ScoresProcessor.SouthAmerica.LoadMedellinScores();
-                var saoPauloScore = await ScoresProcessor.SouthAmerica.LoadSaoPauloScores();
-                var portoAlegreScore = await ScoresProcessor.SouthAmerica.LoadPortoAlegreScores();
 
                 var bogota = SACities[1];
                 var caracas = SACities[3];
@@ -339,36 +275,16 @@ namespace DemoLibrary2
                 var saoPaulo = SACities[14];
                 var portoAlegre = SACities[10];
 
-                List<ScoresModel.Scores.Root> southAmericaScores = new List<ScoresModel.Scores.Root>();
-
-                southAmericaScores.Add(bogotaScore);
-                southAmericaScores.Add(caracasScore);
-                southAmericaScores.Add(medellinScore);
-                southAmericaScores.Add(saoPauloScore);
-                southAmericaScores.Add(portoAlegreScore);
-
-                List<UrbanAreasModel.UrbanAreas.UaItem> southAmericaCities = new List<UrbanAreasModel.UrbanAreas.UaItem>();
-
-                southAmericaCities.Add(bogota);
-                southAmericaCities.Add(caracas);
-                southAmericaCities.Add(medellin);
-                southAmericaCities.Add(saoPaulo);
-                southAmericaCities.Add(portoAlegre);
-
-                TeleportViewModel mymodel = new TeleportViewModel();
-
-                mymodel.SouthAmericaCities = southAmericaCities;
-                mymodel.SouthAmericaScores = southAmericaScores;
                 mymodel.Bogota = bogota;
-                mymodel.BogotaScore = bogotaScore;
+                mymodel.BogotaScore = await LoadBogotaScores();
                 mymodel.Caracas = caracas;
-                mymodel.CaracasScore = caracasScore;
+                mymodel.CaracasScore = await LoadCaracasScores();
                 mymodel.Medellin = medellin;
-                mymodel.MedellinScore = medellinScore;
+                mymodel.MedellinScore = await LoadMedellinScores();
                 mymodel.SaoPaulo = saoPaulo;
-                mymodel.SaoPauloScore = saoPauloScore;
+                mymodel.SaoPauloScore = await LoadSaoPauloScores();
                 mymodel.PortoAlegre = portoAlegre;
-                mymodel.PortoAlegreScore = portoAlegreScore;
+                mymodel.PortoAlegreScore = await LoadPortoAlegreScores();
 
                 return (mymodel);
             }
