@@ -17,7 +17,7 @@ namespace DemoLibrary2.Controllers
             ApiHelper.InitializeClient();
 
             var continentItems = await ContinentsProcessor.LoadContinents();
-            var continents = continentItems._links.continentitems;
+            var continents? = continentItems?._links?.continentitems;
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
