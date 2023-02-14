@@ -34,14 +34,14 @@
                 <td>@Html.Raw(@Model.MedellinScore.summary)</td>
             </tr>
             <tr>
-                <td>@Model.SaoPaulo?.name</td>
-                <td>@((int)@Model.SaoPauloScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.SaoPauloScore.summary)</td>
-            </tr>
-            <tr>
                 <td>@Model.PortoAlegre?.name</td>
                 <td>@((int)@Model.PortoAlegreScore.teleport_city_score)</td>
                 <td>@Html.Raw(@Model.PortoAlegreScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.SaoPaulo?.name</td>
+                <td>@((int)@Model.SaoPauloScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.SaoPauloScore.summary)</td>
             </tr>
         </tbody>
     </table>

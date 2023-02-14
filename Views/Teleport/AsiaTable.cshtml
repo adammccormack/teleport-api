@@ -24,6 +24,11 @@
                 <td>@Html.Raw(@Model.DohaScore.summary)</td>
             </tr>
             <tr>
+                <td>@Model.HongKong?.name</td>
+                <td>@((int)@Model.HongKongScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.HongKongScore.summary)</td>
+            </tr>
+            <tr>
                 <td>@Model.Manila?.name</td>
                 <td>@((int)@Model.ManilaScore.teleport_city_score)</td>
                 <td>@Html.Raw(@Model.ManilaScore.summary)</td>
@@ -32,11 +37,6 @@
                 <td>@Model.Taipei?.name</td>
                 <td>@((int)@Model.TaipeiScore.teleport_city_score)</td>
                 <td>@Html.Raw(@Model.TaipeiScore.summary)</td>
-            </tr>
-            <tr>
-                <td>@Model.HongKong?.name</td>
-                <td>@((int)@Model.HongKongScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.HongKongScore.summary)</td>
             </tr>
             <tr>
                 <td>@Model.Tokyo?.name</td>

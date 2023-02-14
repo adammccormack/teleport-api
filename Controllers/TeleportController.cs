@@ -17,7 +17,7 @@ namespace DemoLibrary2.Controllers
             ApiHelper.InitializeClient();
 
             var continentItems = await ContinentsProcessor.LoadContinents();
-            var continents? = continentItems?._links?.continentitems;
+            var continents = continentItems?._links?.continentitems;
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
                 mymodel.Continents = continents;
@@ -37,29 +37,23 @@ namespace DemoLibrary2.Controllers
 
             switch(selectedContinent)
             {
-                case "North America":
-                    return RedirectToAction("NorthAmericaTable");
-                case "South America":
-                    return RedirectToAction("SouthAmericaTable");
+                case "Antarctica":
+                    TempData["AlertMessage"] = "Sorry no urban areas for this continent : (";
+                    return RedirectToAction("Index");
                 case "Africa":
                     return RedirectToAction("AfricaTable");
                 case "Asia":
                     return RedirectToAction("AsiaTable");
-                case "Oceania":
-                    return RedirectToAction("OceaniaTable");
                 case "Europe":
                     return RedirectToAction("EuropeTable");
-                case "Antarctica":
-                    TempData["AlertMessage"] = "Sorry no urban areas for this continent : (";
-                    return RedirectToAction("Index");
+                case "North America":
+                    return RedirectToAction("NorthAmericaTable");
+                case "Oceania":
+                    return RedirectToAction("OceaniaTable");
+                case "South America":
+                    return RedirectToAction("SouthAmericaTable");
             }
             return RedirectToAction("Index");
-        }
-
-        public async Task<IActionResult> NorthAmericaTable()
-        {
-            var mymodel = await ScoresProcessor.NorthAmerica.ProcessNameAndScores();
-            return View(mymodel);
         }
 
         public async Task<IActionResult> AfricaTable()
@@ -74,9 +68,15 @@ namespace DemoLibrary2.Controllers
             return View(mymodel);
         }
 
-        public async Task<IActionResult> SouthAmericaTable()
+        public async Task<IActionResult> EuropeTable()
         {
-            var mymodel = await ScoresProcessor.SouthAmerica.ProcessNameAndScores();
+            var mymodel = await ScoresProcessor.Europe.ProcessNameAndScores();
+            return View(mymodel);
+        }
+
+        public async Task<IActionResult> NorthAmericaTable()
+        {
+            var mymodel = await ScoresProcessor.NorthAmerica.ProcessNameAndScores();
             return View(mymodel);
         }
 
@@ -86,9 +86,9 @@ namespace DemoLibrary2.Controllers
             return View(mymodel);
         }
 
-        public async Task<IActionResult> EuropeTable()
+        public async Task<IActionResult> SouthAmericaTable()
         {
-            var mymodel = await ScoresProcessor.Europe.ProcessNameAndScores();
+            var mymodel = await ScoresProcessor.SouthAmerica.ProcessNameAndScores();
             return View(mymodel);
         }
     }

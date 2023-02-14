@@ -44,10 +44,10 @@ namespace DemoLibrary2
             return await LoadUrbanAreas(asiaUrl);
         }
 
-        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadSouthAmericaUrbanAreas()
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadEuropeUrbanAreas()
         {
-            string southAamericaUrl = "https://api.teleport.org/api/continents/geonames:SA/urban_areas/";
-            return await LoadUrbanAreas(southAamericaUrl);
+            string europeUrl = "https://api.teleport.org/api/continents/geonames:EU/urban_areas/";
+            return await LoadUrbanAreas(europeUrl);
         }
 
         public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadNorthAmericaUrbanAreas()
@@ -62,10 +62,10 @@ namespace DemoLibrary2
             return await LoadUrbanAreas(oceaniaUrl);
         }
 
-        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadEuropeUrbanAreas()
+        public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadSouthAmericaUrbanAreas()
         {
-            string europeUrl = "https://api.teleport.org/api/continents/geonames:EU/urban_areas/";
-            return await LoadUrbanAreas(europeUrl);
+            string southAamericaUrl = "https://api.teleport.org/api/continents/geonames:SA/urban_areas/";
+            return await LoadUrbanAreas(southAamericaUrl);
         }
     }
 }
