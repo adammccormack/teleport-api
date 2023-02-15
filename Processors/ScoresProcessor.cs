@@ -139,11 +139,6 @@ namespace DemoLibrary2
 
         public class Europe
         {
-            public static async Task<ScoresModel.Scores.Root> LoadAarhusScores()
-            {
-                return await LoadUrbanAreaScores("aarhus");
-            }
-
             public static async Task<ScoresModel.Scores.Root> LoadMunichScores()
             {
                 return await LoadUrbanAreaScores("munich");
