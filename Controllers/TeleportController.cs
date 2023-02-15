@@ -17,14 +17,14 @@ namespace DemoLibrary2.Controllers
             var continentItems = await ContinentsProcessor.LoadContinents();
             var continents = continentItems?._links?.continentitems;
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
-                mymodel.Continents = continents;
-                mymodel.ContinentsSelectList = new List<SelectListItem>();
+                TeleportViewModel model = new TeleportViewModel();
+                model.Continents = continents;
+                model.ContinentsSelectList = new List<SelectListItem>();
                 foreach (var continent in continents)
                 {
-                    mymodel.ContinentsSelectList.Add(new SelectListItem { Text = continent.name });
+                    model.ContinentsSelectList.Add(new SelectListItem { Text = continent.name });
                 }
-                return View(mymodel);
+                return View(model);
             }
         }
 
@@ -53,17 +53,16 @@ namespace DemoLibrary2.Controllers
             }
             return RedirectToAction("Index");
         }
-
         public async Task<IActionResult> AfricaTable()
         {
-            var mymodel = await ScoresProcessor.Africa.ProcessNameAndScores();
-            return View(mymodel);
+            var model = await ScoresProcessor.Africa.ProcessNameAndScores();
+            return View(model);
         }
 
         public async Task<IActionResult> AsiaTable()
         {
-            var mymodel = await ScoresProcessor.Asia.ProcessNameAndScores();
-            return View(mymodel);
+            var model = await ScoresProcessor.Asia.ProcessNameAndScores();
+            return View(model);
         }
 
         public async Task<IActionResult> EuropeTable()
@@ -80,8 +79,8 @@ namespace DemoLibrary2.Controllers
 
         public async Task<IActionResult> OceaniaTable()
         {
-            var mymodel = await ScoresProcessor.Oceania.ProcessNameAndScores();
-            return View(mymodel);
+            var model = await ScoresProcessor.Oceania.ProcessNameAndScores();
+            return View(model);
         }
 
         public async Task<IActionResult> SouthAmericaTable()

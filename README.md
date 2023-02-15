@@ -11,4 +11,3 @@ git clone "https://github.com/adammccormack/teleport-api.tests" in same level di
 open teleport-api.tests in visual studio and add a reference to this project.
 
 Run the tests in visual studio.
-

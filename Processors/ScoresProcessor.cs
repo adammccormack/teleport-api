@@ -26,8 +26,8 @@ namespace DemoLibrary2
 
         public static async Task<ScoresModel.Scores.Root> LoadUrbanAreaScores(string city)
         {
-            string apiUrl = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
-            return await LoadScores(apiUrl);
+            string url = $"https://api.teleport.org/api/urban_areas/slug:{city}/scores/";
+            return await LoadScores(url);
         }
 
         public class Africa
@@ -59,23 +59,23 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel model = new TeleportViewModel();
 
                 var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
                 var africaCities = africaUA._links.uaitems;
+                
+                model.Cairo = africaCities[0];
+                model.CairoScore = await LoadCairoScores();
+                model.CapeTown = africaCities[1];
+                model.CapeTownScore = await LoadCapeTownScores();
+                model.Johannesburg = africaCities[4];
+                model.JohannesburgScore = await LoadJohannesburgScores();
+                model.Tunis = africaCities[7];
+                model.TunisScore = await LoadTunisScores();
+                model.Nairobi = africaCities[6];
+                model.NairobiScore = await LoadNairobiScores();
 
-                mymodel.Cairo = africaCities[0];
-                mymodel.CairoScore = await LoadCairoScores();
-                mymodel.CapeTown = africaCities[1];
-                mymodel.CapeTownScore = await LoadCapeTownScores();
-                mymodel.Johannesburg = africaCities[4];
-                mymodel.JohannesburgScore = await LoadJohannesburgScores();
-                mymodel.Tunis = africaCities[7];
-                mymodel.TunisScore = await LoadTunisScores();
-                mymodel.Nairobi = africaCities[6];
-                mymodel.NairobiScore = await LoadNairobiScores();
-
-                return (mymodel);
+                return (model);
             }
         }
 
@@ -108,23 +108,23 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel model = new TeleportViewModel();
 
                 var asiaUA = await UrbanAreasProcessor.LoadAsiaUrbanAreas();
                 var asiaCities = asiaUA._links.uaitems;
 
-                mymodel.Singapore = asiaCities[30];
-                mymodel.SingaporeScore = await LoadSingaporeScores();
-                mymodel.Tokyo = asiaCities[35];
-                mymodel.TokyoScore = await LoadTokyoScores();
-                mymodel.Seoul = asiaCities[28];
-                mymodel.SeoulScore = await LoadSeoulScores();
-                mymodel.Osaka = asiaCities[24];
-                mymodel.OsakaScore = await LoadOsakaScores();
-                mymodel.HongKong = asiaCities[15];
-                mymodel.HongKongScore = await LoadHongKongScores();
-
-                return (mymodel);
+                model.Singapore = asiaCities[30];
+                model.SingaporeScore = await LoadSingaporeScores();
+                model.Tokyo = asiaCities[35];
+                model.TokyoScore = await LoadTokyoScores();
+                model.Seoul = asiaCities[28];
+                model.SeoulScore = await LoadSeoulScores();
+                model.Osaka = asiaCities[24];
+                model.OsakaScore = await LoadOsakaScores();
+                model.HongKong = asiaCities[15];
+                model.HongKongScore = await LoadHongKongScores();
+                
+                return (model);
             }
         }
 
@@ -157,23 +157,23 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel model = new TeleportViewModel();
 
                 var europeUA = await UrbanAreasProcessor.LoadEuropeUrbanAreas();
                 var europeanCities = europeUA._links.uaitems;
 
-                mymodel.Munich = europeanCities[69];
-                mymodel.MunichScore = await LoadMunichScores();
-                mymodel.Berlin = europeanCities[8];
-                mymodel.BerlinScore = await LoadBerlinScores();
-                mymodel.Amsterdam = europeanCities[1];
-                mymodel.AmsterdamScore = await LoadAmsterdamScores();
-                mymodel.London = europeanCities[57];
-                mymodel.LondonScore = await LoadLondonScores();
-                mymodel.Copenhagen = europeanCities[26];
-                mymodel.CopenhagenScore = await LoadCopenhagenScores();
+                model.Munich = europeanCities[69];
+                model.MunichScore = await LoadMunichScores();
+                model.Berlin = europeanCities[8];
+                model.BerlinScore = await LoadBerlinScores();
+                model.Amsterdam = europeanCities[1];
+                model.AmsterdamScore = await LoadAmsterdamScores();
+                model.London = europeanCities[57];
+                model.LondonScore = await LoadLondonScores();
+                model.Copenhagen = europeanCities[26];
+                model.CopenhagenScore = await LoadCopenhagenScores();
 
-                return (mymodel);
+                return (model);
             }
         }
 
@@ -206,23 +206,23 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel model = new TeleportViewModel();
 
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var northAmericaCities = northAmericaUA._links.uaitems;
 
-                mymodel.Toronto = northAmericaCities[82];
-                mymodel.TorontoScore = await LoadTorontoScores();
-                mymodel.Montreal = northAmericaCities[50];
-                mymodel.MontrealScore = await LoadMontrealScores();
-                mymodel.Boston = northAmericaCities[9];
-                mymodel.BostonScore = await LoadBostonScores();
-                mymodel.NewYork = northAmericaCities[53];
-                mymodel.NewYorkScore = await LoadNewYorkScores();
-                mymodel.Vancouver = northAmericaCities[83];
-                mymodel.VancouverScore = await LoadVancouverScores();
+                model.Toronto = northAmericaCities[82];
+                model.TorontoScore = await LoadTorontoScores();
+                model.Montreal = northAmericaCities[50];
+                model.MontrealScore = await LoadMontrealScores();
+                model.Boston = northAmericaCities[9];
+                model.BostonScore = await LoadBostonScores();
+                model.NewYork = northAmericaCities[53];
+                model.NewYorkScore = await LoadNewYorkScores();
+                model.Vancouver = northAmericaCities[83];
+                model.VancouverScore = await LoadVancouverScores();
 
-                return (mymodel);
+                return (model);
             }
         }
 
@@ -255,23 +255,23 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel model = new TeleportViewModel();
 
                 var oceaniaUA = await UrbanAreasProcessor.LoadOceaniaUrbanAreas();
                 var oceaniaCities = oceaniaUA._links.uaitems;
 
-                mymodel.Melbourne = oceaniaCities[4];
-                mymodel.MelbourneScore = await LoadMelbourneScores();
-                mymodel.Sydney = oceaniaCities[6];
-                mymodel.SydneyScore = await LoadSydneyScores();
-                mymodel.Brisbane = oceaniaCities[2];
-                mymodel.BrisbaneScore = await LoadBrisbaneScores();
-                mymodel.Wellington = oceaniaCities[7];
-                mymodel.WellingtonScore = await LoadWellingtonScores();
-                mymodel.Adelaide = oceaniaCities[0];
-                mymodel.AdelaideScore = await LoadAdelaideScores();
-
-                return (mymodel);
+                model.Melbourne = oceaniaCities[4];
+                model.MelbourneScore = await LoadMelbourneScores();
+                model.Sydney = oceaniaCities[6];
+                model.SydneyScore = await LoadSydneyScores();
+                model.Brisbane = oceaniaCities[2];
+                model.BrisbaneScore = await LoadBrisbaneScores();
+                model.Wellington = oceaniaCities[7];
+                model.WellingtonScore = await LoadWellingtonScores();
+                model.Adelaide = oceaniaCities[0];
+                model.AdelaideScore = await LoadAdelaideScores();
+                
+                return (model);
             }
         }
 
@@ -305,23 +305,23 @@ namespace DemoLibrary2
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
-                TeleportViewModel mymodel = new TeleportViewModel();
+                TeleportViewModel model = new TeleportViewModel();
 
                 var southAmericaUA = await UrbanAreasProcessor.LoadSouthAmericaUrbanAreas();
                 var southAmericaCities = southAmericaUA._links.uaitems;
 
-                mymodel.Santiago = southAmericaCities[13];
-                mymodel.SantiagoScore = await LoadSantiagoScores();
-                mymodel.Bogota = southAmericaCities[1];
-                mymodel.BogotaScore = await LoadBogotaScores();
-                mymodel.Medellin = southAmericaCities[8];
-                mymodel.MedellinScore = await LoadMedellinScores();
-                mymodel.Montevideo = southAmericaCities[9];
-                mymodel.MontevideoScore = await LoadMontevideoScores();
-                mymodel.BuenosAires = southAmericaCities[2];
-                mymodel.BuenosAirescore = await LoadBuenosAirescores();
+                model.Santiago = southAmericaCities[13];
+                model.SantiagoScore = await LoadSantiagoScores();
+                model.Bogota = southAmericaCities[1];
+                model.BogotaScore = await LoadBogotaScores();
+                model.Medellin = southAmericaCities[8];
+                model.MedellinScore = await LoadMedellinScores();
+                model.Montevideo = southAmericaCities[9];
+                model.MontevideoScore = await LoadMontevideoScores();
+                model.BuenosAires = southAmericaCities[2];
+                model.BuenosAirescore = await LoadBuenosAirescores();
 
-                return (mymodel);
+                return (model);
             }
         }
     }
