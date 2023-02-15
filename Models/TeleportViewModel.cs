@@ -10,18 +10,18 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem>? NorthAmericaCities { get; set; }
         public List<ScoresModel.Scores.Root>? NorthAmericaScores { get; set; }
 
+        public UrbanAreasModel.UrbanAreas.UaItem? Toronto { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Montreal { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Boston { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? LasVegas { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? NewYork { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? WashingtonDC { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Miami { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Vancouver { get; set; }
 
+        public ScoresModel.Scores.Root? TorontoScore { get; set; }
+        public ScoresModel.Scores.Root? MontrealScore { get; set; }
         public ScoresModel.Scores.Root? BostonScore { get; set; }
-        public ScoresModel.Scores.Root? LasVegasScore { get; set; }
         public ScoresModel.Scores.Root? NewYorkScore { get; set; }
-        public ScoresModel.Scores.Root? WashingtonDCScore { get; set; }
-        public ScoresModel.Scores.Root? MiamiScore { get; set; }
-
+        public ScoresModel.Scores.Root? VancouverScore { get; set; }
+ 
         //Africa
         public List<UrbanAreasModel.UrbanAreas.UaItem>? AfricaCities { get; set; }
         public List<ScoresModel.Scores.Root>? AfricaScores { get; set; }

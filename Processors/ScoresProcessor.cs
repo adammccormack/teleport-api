@@ -139,11 +139,6 @@ namespace DemoLibrary2
 
         public class Europe
         {
-            public static async Task<ScoresModel.Scores.Root> LoadAarhusScores()
-            {
-                return await LoadUrbanAreaScores("aarhus");
-            }
-
             public static async Task<ScoresModel.Scores.Root> LoadMunichScores()
             {
                 return await LoadUrbanAreaScores("munich");
@@ -193,29 +188,29 @@ namespace DemoLibrary2
 
         public class NorthAmerica
         {
+            public static async Task<ScoresModel.Scores.Root> LoadTorontoScores()
+            {
+                return await LoadUrbanAreaScores("toronto");
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadMontrealScores()
+            {
+                return await LoadUrbanAreaScores("montreal");
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadVancouverScores()
+            {
+                return await LoadUrbanAreaScores("vancouver");
+            }
+
             public static async Task<ScoresModel.Scores.Root> LoadBostonScores()
             {
                 return await LoadUrbanAreaScores("boston");
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadLasVegasScores()
-            {
-                return await LoadUrbanAreaScores("las-vegas");
-            }
-
             public static async Task<ScoresModel.Scores.Root> LoadNewYorkScores()
             {
                 return await LoadUrbanAreaScores("new-york");
-            }
-
-            public static async Task<ScoresModel.Scores.Root> LoadWashingtonDCScores()
-            {
-                return await LoadUrbanAreaScores("washington-dc");
-            }
-
-            public static async Task<ScoresModel.Scores.Root> LoadMiamiScores()
-            {
-                return await LoadUrbanAreaScores("miami");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -225,16 +220,16 @@ namespace DemoLibrary2
                 var northAmericaUA = await UrbanAreasProcessor.LoadNorthAmericaUrbanAreas();
                 var northAmericaCities = northAmericaUA._links.uaitems;
 
+                mymodel.Toronto = northAmericaCities[82];
+                mymodel.TorontoScore = await LoadTorontoScores();
+                mymodel.Montreal = northAmericaCities[50];
+                mymodel.MontrealScore = await LoadMontrealScores();
                 mymodel.Boston = northAmericaCities[9];
                 mymodel.BostonScore = await LoadBostonScores();
-                mymodel.LasVegas = northAmericaCities[40];
-                mymodel.LasVegasScore = await LoadLasVegasScores();
                 mymodel.NewYork = northAmericaCities[53];
                 mymodel.NewYorkScore = await LoadNewYorkScores();
-                mymodel.WashingtonDC = northAmericaCities[85];
-                mymodel.WashingtonDCScore = await LoadWashingtonDCScores();
-                mymodel.Miami = northAmericaCities[47];
-                mymodel.MiamiScore = await LoadMiamiScores();
+                mymodel.Vancouver = northAmericaCities[83];
+                mymodel.VancouverScore = await LoadVancouverScores();
 
                 return (mymodel);
             }
