@@ -54,6 +54,22 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root? HongKongScore { get; set; }
         public ScoresModel.Scores.Root? TokyoScore { get; set; }
 
+        //Europe
+        public List<UrbanAreasModel.UrbanAreas.UaItem>? EuropeCities { get; set; }
+        public List<ScoresModel.Scores.Root>? EuropeScores { get; set; }
+
+        public UrbanAreasModel.UrbanAreas.UaItem? Munich { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Berlin { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Amsterdam { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? London { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Copenhagen { get; set; }
+
+        public ScoresModel.Scores.Root? MunichScore { get; set; }
+        public ScoresModel.Scores.Root? BerlinScore { get; set; }
+        public ScoresModel.Scores.Root? AmsterdamScore { get; set; }
+        public ScoresModel.Scores.Root? LondonScore { get; set; }
+        public ScoresModel.Scores.Root? CopenhagenScore { get; set; }
+
         //South America
         public List<UrbanAreasModel.UrbanAreas.UaItem>? SouthAmericaCities { get; set; }
         public List<ScoresModel.Scores.Root>? SouthAmericaScores { get; set; }
@@ -86,22 +102,7 @@ namespace DemoLibrary2.Models
         public ScoresModel.Scores.Root? MelbourneScore { get; set; }
         public ScoresModel.Scores.Root? BrisbaneScore { get; set; }
 
-        //Europe
-        public List<UrbanAreasModel.UrbanAreas.UaItem>? EuropeCities { get; set; }
-        public List<ScoresModel.Scores.Root>? EuropeScores { get; set; }
-
-        public UrbanAreasModel.UrbanAreas.UaItem? Aarhus { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Chisinau { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Lille { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Naples { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Vilnius { get; set; }
-
-        public ScoresModel.Scores.Root? AarhusScore { get; set; }
-        public ScoresModel.Scores.Root? ChisinauScore { get; set; }
-        public ScoresModel.Scores.Root? LilleScore { get; set; }
-        public ScoresModel.Scores.Root? NaplesScore { get; set; }
-        public ScoresModel.Scores.Root? VilniusScore { get; set; }
-
+        
         //Continent
         public List<ContinentsModel.ContinentItem>? Continents { get; set; }
         public string? SelectedContinent { get; set; }

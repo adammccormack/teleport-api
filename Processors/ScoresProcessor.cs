@@ -144,24 +144,29 @@ namespace DemoLibrary2
                 return await LoadUrbanAreaScores("aarhus");
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadChisinauScores()
+            public static async Task<ScoresModel.Scores.Root> LoadMunichScores()
             {
-                return await LoadUrbanAreaScores("chisinau");
+                return await LoadUrbanAreaScores("munich");
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadLilleScores()
+            public static async Task<ScoresModel.Scores.Root> LoadBerlinScores()
             {
-                return await LoadUrbanAreaScores("lille");
+                return await LoadUrbanAreaScores("berlin");
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadNaplesScores()
+            public static async Task<ScoresModel.Scores.Root> LoadAmsterdamScores()
             {
-                return await LoadUrbanAreaScores("naples");
+                return await LoadUrbanAreaScores("amsterdam");
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadVilniusScores()
+            public static async Task<ScoresModel.Scores.Root> LoadLondonScores()
             {
-                return await LoadUrbanAreaScores("vilnius");
+                return await LoadUrbanAreaScores("london");
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadCopenhagenScores()
+            {
+                return await LoadUrbanAreaScores("copenhagen");
             }
 
             public static async Task<TeleportViewModel> ProcessNameAndScores()
@@ -171,16 +176,16 @@ namespace DemoLibrary2
                 var europeUA = await UrbanAreasProcessor.LoadEuropeUrbanAreas();
                 var europeanCities = europeUA._links.uaitems;
 
-                mymodel.Aarhus = europeanCities[0];
-                mymodel.AarhusScore = await LoadAarhusScores();
-                mymodel.Chisinau = europeanCities[23];
-                mymodel.ChisinauScore = await LoadChisinauScores();
-                mymodel.Lille = europeanCities[53];
-                mymodel.LilleScore = await LoadLilleScores();
-                mymodel.Naples = europeanCities[71];
-                mymodel.NaplesScore = await LoadNaplesScores();
-                mymodel.Vilnius = europeanCities[106];
-                mymodel.VilniusScore = await LoadVilniusScores();
+                mymodel.Munich = europeanCities[69];
+                mymodel.MunichScore = await LoadMunichScores();
+                mymodel.Berlin = europeanCities[8];
+                mymodel.BerlinScore = await LoadBerlinScores();
+                mymodel.Amsterdam = europeanCities[1];
+                mymodel.AmsterdamScore = await LoadAmsterdamScores();
+                mymodel.London = europeanCities[57];
+                mymodel.LondonScore = await LoadLondonScores();
+                mymodel.Copenhagen = europeanCities[26];
+                mymodel.CopenhagenScore = await LoadCopenhagenScores();
 
                 return (mymodel);
             }
