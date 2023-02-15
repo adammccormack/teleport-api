@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace DemoLibrary2.Models
 {
 	public class ScoresModel
