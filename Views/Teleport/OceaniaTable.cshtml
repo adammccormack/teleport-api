@@ -19,9 +19,14 @@
         </thead>
         <tbody>
             <tr>
-                <td>@Model.Adelaide?.name</td>
-                <td>@((int)@Model.AdelaideScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.AdelaideScore.summary)</td>
+                <td>@Model.Melbourne?.name</td>
+                <td>@((int)@Model.MelbourneScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.MelbourneScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Sydney?.name</td>
+                <td>@((int)@Model.SydneyScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.SydneyScore.summary)</td>
             </tr>
             <tr>
                 <td>@Model.Brisbane?.name</td>
@@ -29,19 +34,14 @@
                 <td>@Html.Raw(@Model.BrisbaneScore.summary)</td>
             </tr>
             <tr>
-                <td>@Model.ChristChurch?.name</td>
-                <td>@((int)@Model.ChristChurchScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.ChristChurchScore.summary)</td>
-            </tr>
-            <tr>
-                <td>@Model.Melbourne?.name</td>
-                <td>@((int)@Model.MelbourneScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.MelbourneScore.summary)</td>
-            </tr>
-            <tr>
                 <td>@Model.Wellington?.name</td>
                 <td>@((int)Model.WellingtonScore.teleport_city_score)</td>
                 <td>@Html.Raw(@Model.WellingtonScore.summary)</td>
+            </tr>
+            <tr>
+                <td>@Model.Adelaide?.name</td>
+                <td>@((int)@Model.AdelaideScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.AdelaideScore.summary)</td>
             </tr>
         </tbody>
     </table>

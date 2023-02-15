@@ -90,15 +90,15 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem>? OceaniaCities { get; set; }
         public List<ScoresModel.Scores.Root>? OceaniaScores { get; set; }
 
+        public UrbanAreasModel.UrbanAreas.UaItem? Sydney { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Wellington { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Adelaide { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? ChristChurch { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Melbourne { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Brisbane { get; set; }
 
+        public ScoresModel.Scores.Root? SydneyScore { get; set; }
         public ScoresModel.Scores.Root? WellingtonScore { get; set; }
         public ScoresModel.Scores.Root? AdelaideScore { get; set; }
-        public ScoresModel.Scores.Root? ChristChurchScore { get; set; }
         public ScoresModel.Scores.Root? MelbourneScore { get; set; }
         public ScoresModel.Scores.Root? BrisbaneScore { get; set; }
 
