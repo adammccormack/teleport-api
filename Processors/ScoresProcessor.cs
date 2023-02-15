@@ -63,7 +63,7 @@ namespace DemoLibrary2
 
                 var africaUA = await UrbanAreasProcessor.LoadAfricaUrbanAreas();
                 var africaCities = africaUA._links.uaitems;
-                
+
                 model.Cairo = africaCities[0];
                 model.CairoScore = await LoadCairoScores();
                 model.CapeTown = africaCities[1];
