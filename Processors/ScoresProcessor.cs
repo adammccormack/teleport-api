@@ -242,14 +242,14 @@ namespace DemoLibrary2
                 return await LoadUrbanAreaScores("wellington");
             }
 
+            public static async Task<ScoresModel.Scores.Root> LoadSydneyScores()
+            {
+                return await LoadUrbanAreaScores("sydney");
+            }
+
             public static async Task<ScoresModel.Scores.Root> LoadAdelaideScores()
             {
                 return await LoadUrbanAreaScores("adelaide");
-            }
-
-            public static async Task<ScoresModel.Scores.Root> LoadChristChurchScores()
-            {
-                return await LoadUrbanAreaScores("christchurch");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMelbourneScores()
@@ -269,17 +269,17 @@ namespace DemoLibrary2
                 var oceaniaUA = await UrbanAreasProcessor.LoadOceaniaUrbanAreas();
                 var oceaniaCities = oceaniaUA._links.uaitems;
 
+                mymodel.Melbourne = oceaniaCities[4];
+                mymodel.MelbourneScore = await LoadMelbourneScores();
+                mymodel.Sydney = oceaniaCities[6];
+                mymodel.SydneyScore = await LoadSydneyScores();
+                mymodel.Brisbane = oceaniaCities[2];
+                mymodel.BrisbaneScore = await LoadBrisbaneScores();
                 mymodel.Wellington = oceaniaCities[7];
                 mymodel.WellingtonScore = await LoadWellingtonScores();
                 mymodel.Adelaide = oceaniaCities[0];
                 mymodel.AdelaideScore = await LoadAdelaideScores();
-                mymodel.ChristChurch = oceaniaCities[3];
-                mymodel.ChristChurchScore = await LoadChristChurchScores();
-                mymodel.Melbourne = oceaniaCities[4];
-                mymodel.MelbourneScore = await LoadMelbourneScores();
-                mymodel.Brisbane = oceaniaCities[2];
-                mymodel.BrisbaneScore = await LoadBrisbaneScores();
-
+                
                 return (mymodel);
             }
         }
