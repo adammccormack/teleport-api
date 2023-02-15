@@ -2,7 +2,7 @@
 
 Install ASP.net core 7.
 
-In Visual Studio, run the project.
+In Visual Studio, clone the repo, then run the project.
 
 ### `testing`
 
