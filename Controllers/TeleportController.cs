@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using DemoLibrary;
 using Microsoft.AspNetCore.Mvc;
 using DemoLibrary2.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DemoLibrary2.Controllers

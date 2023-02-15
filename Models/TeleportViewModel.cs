@@ -1,5 +1,4 @@
 ﻿using System;
-using DemoLibrary2.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DemoLibrary2.Models
