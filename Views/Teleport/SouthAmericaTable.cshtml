@@ -19,14 +19,14 @@
         </thead>
         <tbody>
             <tr>
+                <td>@Model.Santiago?.name</td>
+                <td>@((int)@Model.SantiagoScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.SantiagoScore.summary)</td>
+            </tr>
+            <tr>
                 <td>@Model.Bogota?.name</td>
                 <td>@((int)Model.BogotaScore.teleport_city_score)</td>
                 <td>@Html.Raw(@Model.BogotaScore.summary)</td>
-            </tr>
-            <tr>
-                <td>@Model.Caracas?.name</td>
-                <td>@((int)@Model.CaracasScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.CaracasScore.summary)</td>
             </tr>
             <tr>
                 <td>@Model.Medellin?.name</td>
@@ -34,14 +34,14 @@
                 <td>@Html.Raw(@Model.MedellinScore.summary)</td>
             </tr>
             <tr>
-                <td>@Model.SaoPaulo?.name</td>
-                <td>@((int)@Model.SaoPauloScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.SaoPauloScore.summary)</td>
+                <td>@Model.Montevideo?.name</td>
+                <td>@((int)@Model.MontevideoScore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.MontevideoScore.summary)</td>
             </tr>
             <tr>
-                <td>@Model.PortoAlegre?.name</td>
-                <td>@((int)@Model.PortoAlegreScore.teleport_city_score)</td>
-                <td>@Html.Raw(@Model.PortoAlegreScore.summary)</td>
+                <td>@Model.BuenosAires?.name</td>
+                <td>@((int)@Model.BuenosAirescore.teleport_city_score)</td>
+                <td>@Html.Raw(@Model.BuenosAirescore.summary)</td>
             </tr>
         </tbody>
     </table>

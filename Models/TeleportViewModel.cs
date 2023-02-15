@@ -74,17 +74,17 @@ namespace DemoLibrary2.Models
         public List<UrbanAreasModel.UrbanAreas.UaItem>? SouthAmericaCities { get; set; }
         public List<ScoresModel.Scores.Root>? SouthAmericaScores { get; set; }
 
+        public UrbanAreasModel.UrbanAreas.UaItem? Santiago { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? Montevideo { get; set; }
+        public UrbanAreasModel.UrbanAreas.UaItem? BuenosAires { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Bogota { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? Caracas { get; set; }
         public UrbanAreasModel.UrbanAreas.UaItem? Medellin { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? SaoPaulo { get; set; }
-        public UrbanAreasModel.UrbanAreas.UaItem? PortoAlegre { get; set; }
 
+        public ScoresModel.Scores.Root? SantiagoScore { get; set; }
+        public ScoresModel.Scores.Root? MontevideoScore { get; set; }
+        public ScoresModel.Scores.Root? BuenosAirescore { get; set; }
         public ScoresModel.Scores.Root? BogotaScore { get; set; }
-        public ScoresModel.Scores.Root? CaracasScore { get; set; }
         public ScoresModel.Scores.Root? MedellinScore { get; set; }
-        public ScoresModel.Scores.Root? SaoPauloScore { get; set; }
-        public ScoresModel.Scores.Root? PortoAlegreScore { get; set; }
 
         //Oceania
         public List<UrbanAreasModel.UrbanAreas.UaItem>? OceaniaCities { get; set; }

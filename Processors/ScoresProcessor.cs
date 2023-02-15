@@ -286,14 +286,25 @@ namespace DemoLibrary2
 
         public class SouthAmerica
         {
+
+            public static async Task<ScoresModel.Scores.Root> LoadSantiagoScores()
+            {
+                return await LoadUrbanAreaScores("santiago");
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadMontevideoScores()
+            {
+                return await LoadUrbanAreaScores("montevideo");
+            }
+
+            public static async Task<ScoresModel.Scores.Root> LoadBuenosAirescores()
+            {
+                return await LoadUrbanAreaScores("buenos-aires");
+            }
+
             public static async Task<ScoresModel.Scores.Root> LoadBogotaScores()
             {
                 return await LoadUrbanAreaScores("bogota");
-            }
-
-            public static async Task<ScoresModel.Scores.Root> LoadCaracasScores()
-            {
-                return await LoadUrbanAreaScores("caracas");
             }
 
             public static async Task<ScoresModel.Scores.Root> LoadMedellinScores()
@@ -301,33 +312,23 @@ namespace DemoLibrary2
                 return await LoadUrbanAreaScores("medellin");
             }
 
-            public static async Task<ScoresModel.Scores.Root> LoadSaoPauloScores()
-            {
-                return await LoadUrbanAreaScores("sao-paulo");
-            }
-
-            public static async Task<ScoresModel.Scores.Root> LoadPortoAlegreScores()
-            {
-                return await LoadUrbanAreaScores("porto-alegre");
-            }
-
             public static async Task<TeleportViewModel> ProcessNameAndScores()
             {
                 TeleportViewModel mymodel = new TeleportViewModel();
 
                 var southAmericaUA = await UrbanAreasProcessor.LoadSouthAmericaUrbanAreas();
-                var SACities = southAmericaUA._links.uaitems;
+                var southAmericaCities = southAmericaUA._links.uaitems;
 
-                mymodel.Bogota = SACities[1];
+                mymodel.Santiago = southAmericaCities[13];
+                mymodel.SantiagoScore = await LoadSantiagoScores();
+                mymodel.Bogota = southAmericaCities[1];
                 mymodel.BogotaScore = await LoadBogotaScores();
-                mymodel.Caracas = SACities[3];
-                mymodel.CaracasScore = await LoadCaracasScores();
-                mymodel.Medellin = SACities[8];
+                mymodel.Medellin = southAmericaCities[8];
                 mymodel.MedellinScore = await LoadMedellinScores();
-                mymodel.SaoPaulo = SACities[14];
-                mymodel.SaoPauloScore = await LoadSaoPauloScores();
-                mymodel.PortoAlegre = SACities[10];
-                mymodel.PortoAlegreScore = await LoadPortoAlegreScores();
+                mymodel.Montevideo = southAmericaCities[9];
+                mymodel.MontevideoScore = await LoadMontevideoScores();
+                mymodel.BuenosAires = southAmericaCities[2];
+                mymodel.BuenosAirescore = await LoadBuenosAirescores();
 
                 return (mymodel);
             }
