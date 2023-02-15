@@ -1,4 +1,4 @@
-### `testing`
+### `setup`
 
 Install ASP.net core 7.
 
