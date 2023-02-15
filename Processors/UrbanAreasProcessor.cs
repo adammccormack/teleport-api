@@ -38,7 +38,7 @@ namespace DemoLibrary2
 
         public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadEuropeUrbanAreas()
         {
-            string url = "https://api.teleport.org/api/continents/geonames:SA/urban_areas/";
+            string url = "https://api.teleport.org/api/continents/geonames:EU/urban_areas/";
             return await LoadUrbanAreas(url);
         }
 
@@ -56,7 +56,7 @@ namespace DemoLibrary2
 
         public static async Task<UrbanAreasModel.UrbanAreas.Root> LoadSouthAmericaUrbanAreas()
         {
-            string url = "https://api.teleport.org/api/continents/geonames:EU/urban_areas/";
+            string url = "https://api.teleport.org/api/continents/geonames:SA/urban_areas/";
             return await LoadUrbanAreas(url);
         }
     }
